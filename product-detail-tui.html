@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm | Túi Giấy B2B Cao Cấp</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .product-detail-section { padding: 80px 0; background-color: var(--color-bg-white); }
+        .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .product-detail-image img { width: 100%; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid var(--color-border); }
+        .product-info-block h1 { font-size: 2.5rem; color: var(--color-primary-dark); margin-bottom: 15px; }
+        .product-info-block .price { font-size: 1.8rem; font-weight: 700; color: var(--color-accent); margin-bottom: 25px; }
+        .product-info-block .description { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; line-height: 1.8; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .specs-table th, .specs-table td { padding: 15px 20px; border-bottom: 1px solid var(--color-border); text-align: left; }
+        .specs-table th { width: 40%; background-color: var(--color-bg-light); color: var(--color-primary-dark); font-weight: 600; }
+        .action-buttons { display: flex; gap: 20px; }
+        .btn-large { padding: 16px 36px; font-size: 1.1rem; }
+        .full-desc { margin-top: 80px; border-top: 1px solid var(--color-border); padding-top: 60px; }
+        .full-desc h2 { font-size: 2rem; color: var(--color-primary-dark); margin-bottom: 20px; }
+        .full-desc-content { font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.8; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.svg" alt="MI Logo" style="height: 70px;">
+            </a>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="products.html" class="active">Sản Phẩm</a></li>
+                    <li><a href="news.html">Tin Tức</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary">Nhận Báo Giá</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-grid">
+                <div class="product-gallery">
+                    <div class="product-detail-image">
+                        <img src="assets/images/tui_giay.png" alt="Túi Giấy Cao Cấp">
+                    </div>
+                </div>
+
+                <div class="product-info-block">
+                    <h1>Túi Giấy Cao Cấp Ép Kim, Dập Nổi</h1>
+                    <div class="price">Liên Hệ Báo Giá Xưởng</div>
+                    
+                    <p class="description">
+                        Giải pháp hoàn hảo để nâng tầm trải nghiệm đập hộp và định vị thương hiệu xa xỉ. Túi giấy công nghiệp dành cho ngành Thời trang, Mỹ phẩm và Quà tặng doanh nghiệp B2B với tỷ lệ sắc nét tối đa trên từng đường in Offset.
+                    </p>
+
+                    <table class="specs-table">
+                        <tbody>
+                            <tr>
+                                <th>Chất liệu Giấy</th>
+                                <td>Ivory (250-300gsm), Couche, Mỹ thuật, Kraft</td>
+                            </tr>
+                            <tr>
+                                <th>Kỹ Thúật Gia Công Phụ</th>
+                                <td>Ép kim vàng/bạc, Phủ UV Định hình, Cán mờ, Dập Nổi</td>
+                            </tr>
+                            <tr>
+                                <th>Loại Quai Mặc Định</th>
+                                <td>Quai Ruy Băng lụa, Quai xoắn giấy, Quai lụa tơ tằm</td>
+                            </tr>
+                            <tr>
+                                <th>Tải Trọng Tối Đa</th>
+                                <td>Lên đến 15kg không đứt rách quai (tuỳ định lượng)</td>
+                            </tr>
+                            <tr>
+                                <th>MOQ (Số lượng tối thiểu)</th>
+                                <td>Từ 1,000 Sản phẩm gia công</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="action-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-large"><i class="fa-solid fa-paper-plane"></i> Yêu Cầu Tư Vấn Mẫu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
