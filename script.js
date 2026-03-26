@@ -1,22 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Product Tabs Logic
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active from all
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-
-            // Add active to clicked
-            btn.classList.add('active');
-            const targetId = btn.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
-        });
-    });
-
-    // 2. Hero Slider with Controls
+    // ── Hero Slider ──────────────────────────────────
     const slides = document.querySelectorAll('.slide');
     const dotsContainer = document.querySelector('.slider-dots');
     const prevBtn = document.querySelector('.slider-arrow.prev');
@@ -24,13 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     let slideInterval;
 
-    // Create dots dynamically
     if (slides.length > 1 && dotsContainer) {
-        slides.forEach((_, index) => {
+        slides.forEach((_, i) => {
             const dot = document.createElement('div');
             dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
             dotsContainer.appendChild(dot);
         });
     }
@@ -40,26 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function goToSlide(index) {
         if (slides.length <= 1) return;
         slides[currentSlide].classList.remove('active');
-        if (dots.length > 0) dots[currentSlide].classList.remove('active');
-        
+        if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
         currentSlide = index;
-        
         slides[currentSlide].classList.add('active');
-        if (dots.length > 0) dots[currentSlide].classList.add('active');
-        
+        if (dots[currentSlide]) dots[currentSlide].classList.add('active');
         resetInterval();
     }
 
     function nextSlide() {
-        if(slides.length <= 1) return;
-        let index = (currentSlide + 1) % slides.length;
-        goToSlide(index);
+        goToSlide((currentSlide + 1) % slides.length);
     }
-
     function prevSlide() {
-        if(slides.length <= 1) return;
-        let index = (currentSlide - 1 + slides.length) % slides.length;
-        goToSlide(index);
+        goToSlide((currentSlide - 1 + slides.length) % slides.length);
     }
 
     if (prevBtn) prevBtn.addEventListener('click', prevSlide);
@@ -67,49 +42,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetInterval() {
         clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 3500);
+        slideInterval = setInterval(nextSlide, 4000);
     }
+    if (slides.length > 1) resetInterval();
 
-    // Start auto rotate
-    if (slides.length > 1) {
-        slideInterval = setInterval(nextSlide, 3500);
-    }
-
-    // 3. Header Scroll Effect
-    const header = document.querySelector('.header');
+    // ── Header Scroll ─────────────────────────────────
+    const header = document.querySelector('#mainHeader');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
-            header.style.height = "70px"; // Shrink slightly
-        } else {
-            header.style.boxShadow = "var(--shadow-sm)";
-            header.style.height = "80px";
-        }
+        header.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // 4. FAQ Accordion Logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
+    // ── Mobile Menu ───────────────────────────────────
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose  = document.getElementById('menuClose');
+    const overlay    = document.getElementById('overlay');
+
+    function openMenu() {
+        mobileMenu.classList.add('open');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+        mobileMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    if (menuToggle) menuToggle.addEventListener('click', openMenu);
+    if (menuClose)  menuClose.addEventListener('click', closeMenu);
+    if (overlay)    overlay.addEventListener('click', closeMenu);
+
+    // ── FAQ Accordion ─────────────────────────────────
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
-            // Close all items
-            faqItems.forEach(i => i.classList.remove('active'));
-            
-            // Toggle clicked item
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         });
     });
 
-    // 5. Initialize AOS (Animate On Scroll)
-    AOS.init({
-        duration: 400,
-        easing: 'ease-out',
-        once: false,
-        offset: 20
-    });
+    // ── Process Line Fill on Scroll Into View ─────────
+    const fill = document.getElementById('processLineFill');
+    if (fill) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) fill.style.width = '100%';
+            });
+        }, { threshold: 0.3 });
+        observer.observe(fill.parentElement);
+    }
+
+    // ── AOS ───────────────────────────────────────────
+    AOS.init({ duration: 550, easing: 'ease-out', once: false, offset: 30 });
 
 });
