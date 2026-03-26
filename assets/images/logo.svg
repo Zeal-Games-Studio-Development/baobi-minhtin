@@ -1,0 +1,16 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+    <!-- White Background matching the shield shape but slightly larger -->
+    <path d="M 30 50 L 210 50 L 210 130 C 210 180 120 220 120 220 C 120 220 30 180 30 130 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="40" stroke-linejoin="round"/>
+    
+    <!-- Original Shield -->
+    <path d="M 30 50 L 210 50 L 210 130 C 210 180 120 220 120 220 C 120 220 30 180 30 130 Z" fill="none" stroke="#1A3C5B" stroke-width="20" stroke-linejoin="round"/>
+    
+    <!-- M -->
+    <path d="M 65 155 L 65 90 L 105 125 L 145 90 L 145 155" fill="none" stroke="#1A3C5B" stroke-width="20" stroke-linejoin="miter"/>
+    
+    <!-- I -->
+    <path d="M 180 125 L 180 155" fill="none" stroke="#1A3C5B" stroke-width="20" stroke-linecap="square"/>
+    
+    <!-- Dot -->
+    <circle cx="180" cy="90" r="16" fill="#F46F22"/>
+</svg>
