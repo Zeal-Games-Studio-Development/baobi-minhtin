@@ -16,20 +16,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Simple Hero Slider (If there were multiple slides)
-    // Currently only 1 slide implemented in HTML, but here is the logic for expansion
+    // 2. Hero Slider with Controls
     const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
     let currentSlide = 0;
+    let slideInterval;
+
+    // Create dots dynamically
+    if (slides.length > 1 && dotsContainer) {
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+        if (slides.length <= 1) return;
+        slides[currentSlide].classList.remove('active');
+        if (dots.length > 0) dots[currentSlide].classList.remove('active');
+        
+        currentSlide = index;
+        
+        slides[currentSlide].classList.add('active');
+        if (dots.length > 0) dots[currentSlide].classList.add('active');
+        
+        resetInterval();
+    }
 
     function nextSlide() {
         if(slides.length <= 1) return;
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+        let index = (currentSlide + 1) % slides.length;
+        goToSlide(index);
     }
 
-    // Auto rotate every 6 seconds
-    setInterval(nextSlide, 6000);
+    function prevSlide() {
+        if(slides.length <= 1) return;
+        let index = (currentSlide - 1 + slides.length) % slides.length;
+        goToSlide(index);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 3500);
+    }
+
+    // Start auto rotate
+    if (slides.length > 1) {
+        slideInterval = setInterval(nextSlide, 3500);
+    }
 
     // 3. Header Scroll Effect
     const header = document.querySelector('.header');
@@ -59,4 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 5. Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 400,
+        easing: 'ease-out',
+        once: false,
+        offset: 20
+    });
+
 });
