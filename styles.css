@@ -1,31 +1,31 @@
-/* CSS Variables for Theme (Navy Blue + Orange) */
+/* CSS Variables for Theme (Elegant Terra Orange) */
 :root {
-    /* Primary: Navy Blue */
-    --color-primary: #1A3C5B;
-    --color-primary-dark: #11283F;
-    --color-primary-light: #2C5A85;
+    /* Primary: Soft Terracotta / Smooth Orange */
+    --color-primary: #D66D42;
+    --color-primary-dark: #B95730;
+    --color-primary-light: #F0A07C;
     
-    /* Secondary/Accent: Bright Orange */
-    --color-accent: #F46F22;
-    --color-accent-dark: #D95C15;
+    /* Secondary/Accent: Warm Peach / Earthy Gold */
+    --color-accent: #E28859;
+    --color-accent-dark: #C46D3E;
 
     /* Backgrounds */
-    --color-bg-light: #F0F6FB; /* Cool pale blue replacing plain off-white */
+    --color-bg-light: #FCF9F6; /* Extremely soft, creamy ivory */
     --color-bg-white: #FFFFFF;
-    --color-border: #E2ECF3; /* Softer blueish-grey border */
+    --color-border: #F0E3DB; /* Soft, warm greyish-orange border */
 
     /* Typography */
-    --color-text-main: #2D2D2D; /* Dark Charcoal */
-    --color-text-muted: #666666;
+    --color-text-main: #3D3530; /* Dark Mocha for softer contrast */
+    --color-text-muted: #857A73; /* Warm taupe */
     
-    /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-    --shadow-md: 0 8px 16px rgba(0,0,0,0.08);
-    --shadow-lg: 0 12px 24px rgba(0,0,0,0.12);
+    /* Shadows - Elegant and soft warm glow */
+    --shadow-sm: 0 4px 16px rgba(185, 87, 48, 0.04);
+    --shadow-md: 0 10px 30px rgba(185, 87, 48, 0.08);
+    --shadow-lg: 0 16px 40px rgba(185, 87, 48, 0.12);
     
     /* Transitions */
-    --trans-fast: 0.2s ease;
-    --trans-normal: 0.3s ease;
+    --trans-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --trans-normal: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Reset & Base */
@@ -75,13 +75,14 @@ h1, h2, h3, h4 {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
     cursor: pointer;
     transition: var(--trans-fast);
     border: none;
     font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary {
@@ -249,7 +250,7 @@ h1, h2, h3, h4 {
 
 .mega-item .img-wrapper {
     height: 120px;
-    border-radius: 6px;
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 12px;
     background: var(--color-bg-light);
@@ -289,8 +290,8 @@ h1, h2, h3, h4 {
 .hero-slider {
     position: relative;
     width: 100%;
-    background-color: var(--color-primary-dark);
-    background-image: radial-gradient(circle at right center, var(--color-primary) 0%, var(--color-primary-dark) 50%);
+    background-color: #2D2522; /* Deep warm charcoal */
+    background-image: linear-gradient(135deg, #1A1614 0%, #352A26 100%);
     overflow: hidden;
     min-height: 650px;
     display: flex;
@@ -442,39 +443,41 @@ h1, h2, h3, h4 {
 }
 
 
-/* Stats Section */
 .stats-section {
-    background-color: var(--color-primary);
-    color: #fff;
-    padding: 40px 0;
-    transform: translateY(-40px);
-    border-radius: 12px;
+    background-color: #FFFFFF;
+    color: var(--color-text-main);
+    padding: 50px 0;
+    transform: translateY(-50px);
+    border-radius: 16px;
     margin: 0 auto;
     max-width: 1200px;
     position: relative;
     z-index: 10;
     box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .stat-item i {
     font-size: 2.5rem;
     margin-bottom: 12px;
-    opacity: 0.8;
+    color: var(--color-primary);
+    opacity: 0.9;
 }
 
 .stat-info h3 {
     font-size: 1.8rem;
+    color: var(--color-primary-dark);
 }
 .stat-info p {
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
 }
 
 /* Products Section */
@@ -503,27 +506,29 @@ h1, h2, h3, h4 {
 }
 
 .tab-btn {
-    padding: 12px 24px;
+    padding: 12px 28px;
     background: #fff;
-    border: 1px solid var(--color-border);
-    border-radius: 5px;
+    border: 2px solid transparent;
+    border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
     font-size: 1rem;
     color: var(--color-text-muted);
     transition: var(--trans-fast);
+    box-shadow: var(--shadow-sm);
 }
 
 .tab-btn:hover {
     color: var(--color-primary);
-    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .tab-btn.active {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     color: #fff;
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-sm);
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
 }
 
 /* Tab Content */
