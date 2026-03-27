@@ -23,6 +23,14 @@
 
     --gold: #f5c842;
 
+    /* Aliases for inline HTML styles */
+    --color-primary: var(--g700);
+    --color-primary-dark: var(--g900);
+    --color-primary-light: var(--g500);
+    --color-accent: var(--lime);
+    --color-accent-dark: var(--lime-dark);
+    --color-border: var(--g200);
+
     --dark: #0a1a0a;
     --white: #ffffff;
     --gray-50: #f9f9f9;
