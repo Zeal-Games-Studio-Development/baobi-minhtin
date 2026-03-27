@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức Công Nghiệp | Minh Tính Plastics</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .news-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-light);
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .news-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--color-border);
+        }
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary-light);
+        }
+        .news-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        .news-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-meta {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .news-title {
+            font-size: 1.3rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex: 1;
+        }
+        .news-card:hover .news-title {
+            color: var(--color-primary);
+        }
+        .read-more {
+            font-weight: 600;
+            color: var(--color-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .read-more:hover {
+            gap: 12px;
+            color: var(--color-accent-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html#" class="logo">
+                <img src="../../assets/images/logo.svg" alt="MI Logo" style="height: 70px;">
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="">Trang Chủ</a></li>
+                    <li class="has-mega-menu">
+                        <a href="products.html">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a>
+                        <!-- Mega Menu Dropdown -->
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="product-detail.html" class="mega-item">
+                                    <div class="img-wrapper">
+                                        <img src="../../assets/images/mang_pe.png" alt="Màng PE">
+                                    </div>
+                                    <span>Màng PE / Nilon</span>
+                                </a>
+                                <a href="product-detail-carton.html" class="mega-item">
+                                    <div class="img-wrapper">
+                                        <img src="../../assets/images/thung_carton.png" alt="Thùng Carton">
+                                    </div>
+                                    <span>Thùng Carton</span>
+                                </a>
+                                <a href="product-detail-cod.html" class="mega-item">
+                                    <div class="img-wrapper">
+                                        <img src="../../assets/images/hop_cod.png" alt="Hộp COD">
+                                    </div>
+                                    <span>Hộp COD / Ship</span>
+                                </a>
+                                <a href="product-detail.html" class="mega-item">
+                                    <div class="img-wrapper">
+                                        <img src="../../assets/images/tui_giay.png" alt="Túi Giấy">
+                                    </div>
+                                    <span>Túi Giấy B2B</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="index.html#company">Năng Lực</a></li>
+                    <li><a href="news.html" class="active">Tin Tức</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary">Nhận Báo Giá</a>
+                <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Tin Tức &amp; Hoạt Động Doanh Nghiệp</h1>
+            <p>Cập nhật xu hướng bao bì và thông tin nội bộ của Minh Tính Plastics</p>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="news-section">
+        <div class="container">
+            <div class="news-grid">
+                <!-- Article 1 -->
+                <article class="news-card">
+                    <img src="../../assets/images/banner_workflow_1774519717141.png" alt="News 1" class="news-img">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 25/11/2026</span>
+                            <span><i class="fa-solid fa-tag"></i> Vận Hành</span>
+                        </div>
+                        <h3 class="news-title">Minh Tính Plastics tự hào nâng cấp 10 dây chuyền bế dập Carton hiện đại từ Đức</h3>
+                        <a href="#" class="read-more">Đọc chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="news-card">
+                    <img src="../../assets/images/mang_pe.png" alt="News 2" class="news-img">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 18/10/2026</span>
+                            <span><i class="fa-solid fa-tag"></i> Sản Phẩm</span>
+                        </div>
+                        <h3 class="news-title">Ra mắt dòng Màng PE xanh rêu thông minh: Tiết kiệm tối đa, độ đàn hồi cực đại</h3>
+                        <a href="#" class="read-more">Đọc chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="news-card">
+                    <img src="../../assets/images/banner_factory_outside_1774519666223.png" alt="News 3" class="news-img">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 05/09/2026</span>
+                            <span><i class="fa-solid fa-tag"></i> Hoạt Động</span>
+                        </div>
+                        <h3 class="news-title">Minh Tính Plastics đạt chứng nhận chuẩn đánh giá thân thiện môi trường năm 2026</h3>
+                        <a href="#" class="read-more">Đọc chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="../../assets/images/logo.svg" alt="MI Logo" style="height: 70px;">
+                    </a>
+                    <p>Công ty TNHH Nhựa &amp; Bao Bì Minh Tính tiên phong mang đến các giải pháp bao bì cao cấp, tối ưu chi phí cho thị trường B2B.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Minh Tính Plastics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>

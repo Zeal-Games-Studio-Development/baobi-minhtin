@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm | Thùng Carton Xuất Khẩu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .product-detail-section { padding: 80px 0; background-color: var(--color-bg-white); }
+        .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .product-detail-image img { width: 100%; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid var(--color-border); }
+        .mini-thumbnails { display: flex; gap: 15px; margin-top: 20px; }
+        .mini-thumbnails img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; border: 2px solid var(--color-border); cursor: pointer; transition: 0.3s; }
+        .mini-thumbnails img:hover { border-color: var(--color-primary); }
+        .product-info-block h1 { font-size: 2.5rem; color: var(--color-primary-dark); margin-bottom: 15px; }
+        .product-info-block .price { font-size: 1.8rem; font-weight: 700; color: var(--color-accent); margin-bottom: 25px; }
+        .product-info-block .description { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; line-height: 1.8; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .specs-table th, .specs-table td { padding: 15px 20px; border-bottom: 1px solid var(--color-border); text-align: left; }
+        .specs-table th { width: 40%; background-color: var(--color-bg-light); color: var(--color-primary-dark); font-weight: 600; }
+        .action-buttons { display: flex; gap: 20px; }
+        .btn-large { padding: 16px 36px; font-size: 1.1rem; }
+        .full-desc { margin-top: 80px; border-top: 1px solid var(--color-border); padding-top: 60px; }
+        .full-desc h2 { font-size: 2rem; color: var(--color-primary-dark); margin-bottom: 20px; }
+        .full-desc-content { font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="../../assets/images/logo.svg" alt="Nhựa Minh Tín Logo">
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="">Trang Chủ</a></li>
+                    <li class="has-mega-menu">
+                        <a href="products.html" class="active">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="product-detail.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/mang_pe.png" alt="Màng PE"></div>
+                                    <span>Màng PE / Nilon</span>
+                                </a>
+                                <a href="product-detail-carton.html" class="mega-item active">
+                                    <div class="img-wrapper"><img src="../../assets/images/thung_carton.png" alt="Thùng Carton"></div>
+                                    <span>Thùng Carton</span>
+                                </a>
+                                <a href="product-detail-cod.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/hop_cod.png" alt="Hộp COD"></div>
+                                    <span>Hộp COD / Ship</span>
+                                </a>
+                                <a href="product-detail-tui.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/tui_giay.png" alt="Túi Giấy"></div>
+                                    <span>Túi Giấy B2B</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="index.html#about">Về Chúng Tôi</a></li>
+                    <li><a href="index.html#machinery">Thiết Bị</a></li>
+                    <li><a href="news.html">Tin Tức</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-file-invoice"></i> Nhận Báo Giá</a>
+                <button class="menu-toggle" id="menu-toggle-btn" aria-label="Mở menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-grid">
+                <div class="product-gallery">
+                    <div class="product-detail-image">
+                        <img src="../../assets/images/thung_carton.png" alt="Thùng Carton 5 Lớp">
+                    </div>
+                </div>
+
+                <div class="product-info-block">
+                    <h1>Thùng Carton 5-7 Lớp Chịu Lực B2B</h1>
+                    <div class="price">Liên Hệ Báo Giá Xưởng</div>
+                    
+                    <p class="description">
+                        Giải pháp thùng carton siêu cứng cáp chuyên dùng để đóng gói hàng hóa siêu trọng, thiết bị kỹ thuật hay hàng hóa xuất khẩu vận chuyển đường biển dài ngày. Chống va đập và bục vỡ tuyệt đối.
+                    </p>
+
+                    <table class="specs-table">
+                        <tbody>
+                            <tr>
+                                <th>Chất liệu Giấy</th>
+                                <td>Giấy Kraft nhập khẩu định lượng cao (150-175gsm)</td>
+                            </tr>
+                            <tr>
+                                <th>Độ dày sóng</th>
+                                <td>Sóng BC (5 lớp) hoặc BCE (7 lớp)</td>
+                            </tr>
+                            <tr>
+                                <th>Khả Năng Chịu Lực (BCT)</th>
+                                <td>Lên đến 120kg (có thể xếp chồng 6 lớp)</td>
+                            </tr>
+                            <tr>
+                                <th>Công Nghệ In</th>
+                                <td>In Flexo (1-4 màu) / In Offset sắc nét</td>
+                            </tr>
+                            <tr>
+                                <th>MOQ (Số lượng tối thiểu)</th>
+                                <td>Từ 1,000 Thùng</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="action-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-large"><i class="fa-solid fa-paper-plane"></i> Yêu Cầu Báo Giá Nhóm Phân Khúc Này</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-desc">
+                <h2>Chi tiết thiết kế Thùng Carton Trợ lực</h2>
+                <div class="full-desc-content">
+                    <p>Thùng carton 5-7 lớp của Minh Tính Plastics sử dụng cấu trúc sóng kép đặc thù giúp giảm tối đa sự rung chấn. Với việc thử nghiệm va đập và rung lắc tại phòng Lab nội bộ, thiết kế thùng luôn đạt chuẩn quốc tế (ISTA 2A) dành cho hàng hóa xuất khẩu thị trường Mỹ, châu Âu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-bottom: 20px;">
+                <p>© 2026 Minh Tính Plastics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>

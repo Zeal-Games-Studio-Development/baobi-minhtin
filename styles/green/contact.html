@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ | Minh Tính Plastics</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .contact-page-inner {
+            padding: 80px 0;
+            background-color: var(--color-bg-light);
+        }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: #fff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+        .contact-form-group {
+            margin-bottom: 25px;
+        }
+        .contact-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+        }
+        .contact-form-control {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+        }
+        .contact-form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(44, 90, 133, 0.1);
+        }
+        .contact-info-side {
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+        }
+        .contact-info-side h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .contact-info-side p {
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .contact-item-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .contact-item-box .icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .contact-item-box h4 {
+            margin: 0 0 5px 0;
+            color: #fff;
+        }
+        .map-container {
+            margin-top: 50px;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: var(--shadow-lg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <header class="header" id="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="../../assets/images/logo.svg" alt="Nhựa Minh Tín Logo">
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="">Trang Chủ</a></li>
+                    <li class="has-mega-menu">
+                        <a href="products.html">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="product-detail.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/mang_pe.png" alt="Màng PE"></div>
+                                    <span>Màng PE / Nilon</span>
+                                </a>
+                                <a href="product-detail-carton.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/thung_carton.png" alt="Thùng Carton"></div>
+                                    <span>Thùng Carton</span>
+                                </a>
+                                <a href="product-detail-cod.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/hop_cod.png" alt="Hộp COD"></div>
+                                    <span>Hộp COD / Ship</span>
+                                </a>
+                                <a href="product-detail-tui.html" class="mega-item">
+                                    <div class="img-wrapper"><img src="../../assets/images/tui_giay.png" alt="Túi Giấy"></div>
+                                    <span>Túi Giấy B2B</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="index.html#about">Về Chúng Tôi</a></li>
+                    <li><a href="index.html#machinery">Thiết Bị</a></li>
+                    <li><a href="news.html">Tin Tức</a></li>
+                    <li><a href="contact.html" class="active">Liên Hệ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary active"><i class="fa-solid fa-file-invoice"></i> Nhận Báo Giá</a>
+                <button class="menu-toggle" id="menu-toggle-btn" aria-label="Mở menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Liên Hệ 24/7</h1>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Hỗ trợ khách hàng Doanh nghiệp giải pháp đóng gói toàn diện</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-page-inner">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Form -->
+                <div class="contact-form">
+                    <h2 style="color: var(--color-primary-dark); font-size: 2rem; margin-bottom: 30px;">Gửi Yêu Cầu Cho Minh Tính</h2>
+                    <form action="#" method="POST">
+                        <div class="contact-form-group">
+                            <label>Họ Tên / Tên Doanh Nghiệp *</label>
+                            <input type="text" class="contact-form-control" placeholder="Nhập tên gọi hoặc công ty" required="">
+                        </div>
+                        <div class="contact-form-group">
+                            <label>Email Liên Hệ *</label>
+                            <input type="email" class="contact-form-control" placeholder="example@mtplastics.com" required="">
+                        </div>
+                        <div class="contact-form-group">
+                            <label>Số Điện Thoại Zalo/Call *</label>
+                            <input type="tel" class="contact-form-control" placeholder="09xx xxx xxx" required="">
+                        </div>
+                        <div class="contact-form-group">
+                            <label>Nội Dung Yêu Cầu Báo Giá</label>
+                            <textarea class="contact-form-control" rows="5" placeholder="Bạn cần tư vấn chi tiết về Màng PE, Thùng Carton hay Túi giấy..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem; border-radius: 8px;">Gửi Tin Nhắn Ngay <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+                    </form>
+                </div>
+                
+                <!-- Info -->
+                <div class="contact-info-side">
+                    <h2>Kênh Giao Thương B2B</h2>
+                    <p>Bộ phận kinh doanh của Minh Tính Plastics sẽ liên hệ lại với bạn trong vòng tối đa 30 phút làm việc.</p>
+                    
+                    <div class="contact-item-box">
+                        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h4>Nhà Máy Sản Xuất:</h4>
+                            <p style="margin:0; opacity:0.9;">Lô A2, KCN Tân Bình, Phường 15, TP.HCM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-box">
+                        <div class="icon"><i class="fa-solid fa-building"></i></div>
+                        <div>
+                            <h4>Văn Phòng Đại Diện:</h4>
+                            <p style="margin:0; opacity:0.9;">Tầng 5, Tòa Nhà Bitexco, TP.HCM</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item-box">
+                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                        <div>
+                            <h4>Hotline Bán Sỉ (Zalo):</h4>
+                            <p style="margin:0; opacity:0.9; font-weight:700; font-size: 1.2rem;">090 000 0000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item-box">
+                        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Hợp Tác:</h4>
+                            <p style="margin:0; opacity:0.9;">b2b@mtplastics.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big Map -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.04948791995!2d106.62646391480111!3d10.80665499230554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be3511eb9ab%3A0x6bba410b2716a50b!2zS0NOIFTDom4gQsOsbmgsIFBow7Dhu51uZyAxNSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1689650000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="../../assets/images/logo.svg" alt="MI Logo" style="height: 70px;">
+                    </a>
+                    <p>Công ty TNHH Nhựa &amp; Bao Bì Minh Tính tiên phong mang đến các giải pháp bao bì cao cấp, tối ưu chi phí cho thị trường B2B.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Sản Phẩm</h4>
+                    <ul>
+                        <li><a href="products.html">Màng Stretch Film PE</a></li>
+                        <li><a href="products.html">Thùng Carton Xuất Khẩu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên Hệ</h4>
+                    <ul class="contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> Lô A2, KCN Tân Bình, TP.HCM</li>
+                        <li><i class="fa-solid fa-phone"></i> 090 000 0000</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
