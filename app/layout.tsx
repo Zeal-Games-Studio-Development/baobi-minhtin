@@ -42,7 +42,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={beVietnam.variable}>
+    <html lang="vi" className={beVietnam.variable} suppressHydrationWarning>
       <body className="font-sans">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
