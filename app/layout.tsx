@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import TopBar from "@/components/layout/TopBar";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
 
 const beVietnam = Be_Vietnam_Pro({
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "vi_VN",
@@ -42,6 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className={beVietnam.variable}>
       <body className="font-sans">
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
         <TopBar />
         <Header />
         {children}

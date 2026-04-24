@@ -5,6 +5,8 @@ import { PaperclipIcon, Phone, FileText } from "lucide-react";
 import { getProductRepository } from "@/lib/products";
 import ProductGallery from "@/components/product/ProductGallery";
 import SpecsTable from "@/components/product/SpecsTable";
+import { ProductJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { site } from "@/lib/site";
 
 export async function generateStaticParams() {
   const repo = getProductRepository();
@@ -21,9 +23,44 @@ export async function generateMetadata({
   const repo = getProductRepository();
   const product = await repo.getBySlug(slug);
   if (!product) return { title: "Không tìm thấy sản phẩm" };
+
+  const title = product.seo?.title ?? product.name;
+  const description =
+    product.seo?.description ?? product.longDescription ?? product.shortDescription;
+  const url = `${site.url}/products/${product.slug}`;
+  const firstImage = product.images[0];
+  const ogImageUrl = firstImage
+    ? firstImage.src.startsWith("http")
+      ? firstImage.src
+      : `${site.url}${firstImage.src}`
+    : `${site.url}/images/hero_banner.png`;
+
   return {
-    title: product.seo?.title ?? `${product.name}`,
-    description: product.seo?.description ?? product.longDescription ?? product.shortDescription,
+    title,
+    description,
+    alternates: { canonical: `/products/${product.slug}` },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url,
+      siteName: site.name,
+      locale: "vi_VN",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: firstImage?.alt ?? product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl],
+    },
   };
 }
 
@@ -45,6 +82,15 @@ export default async function ProductDetailPage({
 
   return (
     <main className="bg-white py-20">
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Trang Chủ", url: "/" },
+          { name: "Sản Phẩm", url: "/products" },
+          { name: product.name, url: `/products/${product.slug}` },
+        ]}
+      />
+
       <div className="container-x">
         <nav className="mb-8 flex items-center gap-2 text-[0.85rem] text-grayline-600">
           <Link href="/" className="hover:text-orange-500">Trang Chủ</Link>

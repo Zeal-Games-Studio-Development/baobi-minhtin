@@ -2,17 +2,37 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Tag, ArrowRight } from "lucide-react";
-import { news } from "@/data/news";
+import { getNewsRepository } from "@/lib/news";
+import { site } from "@/lib/site";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "Tin Tức Công Nghiệp",
   description:
     "Cập nhật xu hướng bao bì, hoạt động doanh nghiệp và công nghệ mới tại Minh Tín Plastics.",
+  alternates: { canonical: "/news" },
+  openGraph: {
+    title: "Tin Tức Công Nghiệp | Minh Tín Plastics",
+    description:
+      "Cập nhật xu hướng bao bì, hoạt động doanh nghiệp và công nghệ mới tại Minh Tín Plastics.",
+    url: `${site.url}/news`,
+    type: "website",
+  },
 };
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const repo = getNewsRepository();
+  const articles = await repo.list();
+
   return (
     <main>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Trang Chủ", url: "/" },
+          { name: "Tin Tức", url: "/news" },
+        ]}
+      />
+
       <section className="bg-gradient-to-br from-navy-700 to-navy-900 py-20 text-center text-white">
         <div className="container-x">
           <h1 className="mb-4 text-4xl font-extrabold md:text-5xl">
@@ -27,23 +47,43 @@ export default function NewsPage() {
       <section className="bg-offwhite py-20">
         <div className="container-x">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {news.map((article) => (
+            {articles.map((article) => (
               <article
                 key={article.slug}
                 className="group flex flex-col overflow-hidden rounded-xl border border-grayline-200 bg-white transition-all hover:-translate-y-2 hover:border-navy-400 hover:shadow-lgnavy"
               >
-                <div className="relative h-[220px] w-full overflow-hidden border-b-[3px] border-orange-500">
-                  <Image src={article.image.src} alt={article.image.alt} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                </div>
+                <Link href={`/news/${article.slug}`} className="block">
+                  <div className="relative h-[220px] w-full overflow-hidden border-b-[3px] border-orange-500">
+                    <Image
+                      src={article.image.src}
+                      alt={article.image.alt}
+                      fill
+                      sizes="(max-width:768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
                 <div className="flex flex-1 flex-col p-6">
                   <div className="mb-2.5 flex items-center gap-3 text-[0.9rem] text-grayline-600">
-                    <span className="flex items-center gap-1.5"><Calendar size={14} /> {article.date}</span>
-                    <span className="flex items-center gap-1.5"><Tag size={14} /> {article.tag}</span>
+                    <time dateTime={article.publishedAt} className="flex items-center gap-1.5">
+                      <Calendar size={14} /> {article.displayDate}
+                    </time>
+                    <span className="flex items-center gap-1.5">
+                      <Tag size={14} /> {article.tag}
+                    </span>
                   </div>
-                  <h3 className="mb-4 flex-1 text-[1.3rem] font-bold leading-snug text-navy-900 transition-colors group-hover:text-navy-700">
-                    {article.title}
-                  </h3>
-                  <Link href="#" className="mt-auto inline-flex items-center gap-2 font-semibold text-orange-500 transition-all hover:gap-3 hover:text-orange-600">
+                  <h2 className="mb-3 text-[1.25rem] font-bold leading-snug text-navy-900 transition-colors group-hover:text-navy-700">
+                    <Link href={`/news/${article.slug}`} className="hover:text-orange-500">
+                      {article.title}
+                    </Link>
+                  </h2>
+                  <p className="mb-4 flex-1 text-[0.95rem] leading-relaxed text-grayline-600">
+                    {article.excerpt}
+                  </p>
+                  <Link
+                    href={`/news/${article.slug}`}
+                    className="mt-auto inline-flex items-center gap-2 font-semibold text-orange-500 transition-all hover:gap-3 hover:text-orange-600"
+                  >
                     Đọc chi tiết <ArrowRight size={14} />
                   </Link>
                 </div>

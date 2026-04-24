@@ -2,11 +2,21 @@ import type { Metadata } from "next";
 import { getProductRepository } from "@/lib/products";
 import ProductCard from "@/components/product/ProductCard";
 import Reveal from "@/components/Reveal";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Hệ Sinh Thái Sản Phẩm",
   description:
     "Danh mục bao bì toàn diện của Minh Tín Plastics: màng PE, thùng carton, hộp ship COD, túi giấy và phụ kiện đóng gói.",
+  alternates: { canonical: "/products" },
+  openGraph: {
+    title: "Hệ Sinh Thái Sản Phẩm | Minh Tín Plastics",
+    description:
+      "Danh mục bao bì toàn diện: màng PE, thùng carton, hộp ship COD, túi giấy và phụ kiện đóng gói B2B.",
+    url: `${site.url}/products`,
+    type: "website",
+  },
 };
 
 export default async function ProductsPage() {
@@ -15,6 +25,13 @@ export default async function ProductsPage() {
 
   return (
     <main>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Trang Chủ", url: "/" },
+          { name: "Sản Phẩm", url: "/products" },
+        ]}
+      />
+
       <section className="bg-gradient-to-br from-navy-700 to-navy-900 py-20 text-center text-white">
         <div className="container-x">
           <h1 className="mb-4 text-4xl font-extrabold md:text-5xl">

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Liên Hệ 24/7",
   description:
     "Liên hệ bộ phận B2B của Minh Tín Plastics để được tư vấn giải pháp bao bì tối ưu — phản hồi trong 30 phút làm việc.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
