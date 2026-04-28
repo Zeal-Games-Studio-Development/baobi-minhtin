@@ -47,8 +47,8 @@ export async function generateMetadata({
       images: [
         {
           url: ogImage,
-          width: article.image.width ?? 1200,
-          height: article.image.height ?? 630,
+          width: 1200,
+          height: 630,
           alt: article.image.alt,
         },
       ],

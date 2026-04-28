@@ -21,8 +21,8 @@ export function getProductRepository(): ProductRepository {
   if (instance) return instance;
   // Lazy import so bundler can tree-shake future CMS impls.
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { LocalProductRepository } = require("./local-repository") as typeof import("./local-repository");
-  instance = new LocalProductRepository();
+  const { DirectusProductRepository } = require("./directus-repository") as typeof import("./directus-repository");
+  instance = new DirectusProductRepository();
   return instance;
 }
 

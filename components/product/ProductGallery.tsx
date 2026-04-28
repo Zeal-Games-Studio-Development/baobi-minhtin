@@ -23,20 +23,29 @@ export default function ProductGallery({ images }: { images: ProductImage[] }) {
           />
         </div>
       </div>
+
       {images.length > 1 && (
-        <div className="mt-5 flex gap-4">
+        <div className="mt-5 flex gap-4 flex-wrap">
           {images.map((img, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setActiveIdx(i)}
               className={`h-20 w-20 overflow-hidden rounded-lg border-2 transition-colors ${
-                i === activeIdx ? "border-navy-700" : "border-grayline-200 hover:border-orange-400"
+                i === activeIdx
+                  ? "border-navy-700"
+                  : "border-grayline-200 hover:border-orange-400"
               }`}
               aria-label={`Xem ảnh ${i + 1}`}
             >
               <div className="relative h-full w-full">
-                <Image src={img.src} alt={img.alt} fill sizes="80px" className="object-cover" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="80px"
+                  className="object-cover"
+                />
               </div>
             </button>
           ))}

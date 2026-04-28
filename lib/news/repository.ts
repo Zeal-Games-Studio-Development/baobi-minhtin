@@ -18,8 +18,8 @@ let instance: NewsRepository | null = null;
 export function getNewsRepository(): NewsRepository {
   if (instance) return instance;
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { LocalNewsRepository } = require("./local-repository") as typeof import("./local-repository");
-  instance = new LocalNewsRepository();
+  const { DirectusNewsRepository } = require("./directus-repository") as typeof import("./directus-repository");
+  instance = new DirectusNewsRepository();
   return instance;
 }
 

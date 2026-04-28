@@ -15,8 +15,6 @@ export const news: NewsArticle[] = [
     image: {
       src: "/images/banner_workflow_1774519717141.png",
       alt: "Dây chuyền bế dập carton hiện đại",
-      width: 1200,
-      height: 630,
     },
     excerpt:
       "Đầu tư 10 dàn máy bế dập tự động nhập khẩu nguyên chiếc từ Đức, nâng công suất xưởng lên gấp 3 lần và rút ngắn thời gian giao hàng cho khách B2B.",
@@ -49,8 +47,6 @@ export const news: NewsArticle[] = [
     image: {
       src: "/images/mang_pe.png",
       alt: "Màng PE xanh rêu mới",
-      width: 1200,
-      height: 630,
     },
     excerpt:
       "Dòng màng PE thế hệ mới với công nghệ đùn 5 lớp, độ co giãn 350%, chống tia UV và tiết kiệm 25% trọng lượng so với sản phẩm cùng độ dày.",
@@ -83,8 +79,6 @@ export const news: NewsArticle[] = [
     image: {
       src: "/images/banner_factory_outside_1774519666223.png",
       alt: "Nhà máy MTP đạt chuẩn xanh",
-      width: 1200,
-      height: 630,
     },
     excerpt:
       "MTP được trao chứng nhận Green Manufacturing 2026 nhờ hệ thống xử lý nước thải kín và sử dụng 100% hạt nhựa tái chế cho dòng sản phẩm Eco.",

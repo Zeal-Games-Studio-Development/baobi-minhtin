@@ -3,9 +3,6 @@ export type NewsTag = "Vận Hành" | "Sản Phẩm" | "Hoạt Động" | "Sự 
 export interface NewsImage {
   src: string;
   alt: string;
-  /** Optional explicit width/height for OG sharing. */
-  width?: number;
-  height?: number;
 }
 
 export interface NewsArticle {
