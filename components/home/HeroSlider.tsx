@@ -17,7 +17,7 @@ const slides = [
     badgeNumber: "500+",
     badgeLabel: "Khách Hàng B2B",
     cta1: { href: "#products", label: "Khám Phá Sản Phẩm", icon: <Package size={16} /> },
-    cta2: { href: "/contact", label: "Nhận Báo Giá" },
+    cta2: { href: "/lien-he", label: "Nhận Báo Giá" },
   },
   {
     tag: "Nhà Máy Đạt Chuẩn",
@@ -69,7 +69,7 @@ const slides = [
     alt: "Đội Ngũ",
     badgeNumber: "10+",
     badgeLabel: "Năm Kinh Nghiệm",
-    cta1: { href: "/contact", label: "Liên Hệ Ngay", icon: <Headset size={16} /> },
+    cta1: { href: "/lien-he", label: "Liên Hệ Ngay", icon: <Headset size={16} /> },
   },
 ];
 

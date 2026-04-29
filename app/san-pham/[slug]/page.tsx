@@ -27,7 +27,7 @@ export async function generateMetadata({
   const title = product.seo?.title ?? product.name;
   const description =
     product.seo?.description ?? product.longDescription ?? product.shortDescription;
-  const url = `${site.url}/products/${product.slug}`;
+  const url = `${site.url}/san-pham/${product.slug}`;
   const firstImage = product.images[0];
   const ogImageUrl = firstImage
     ? firstImage.src.startsWith("http")
@@ -38,7 +38,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/products/${product.slug}` },
+    alternates: { canonical: `/san-pham/${product.slug}` },
     openGraph: {
       type: "website",
       title,
@@ -86,8 +86,8 @@ export default async function ProductDetailPage({
       <BreadcrumbJsonLd
         items={[
           { name: "Trang Chủ", url: "/" },
-          { name: "Sản Phẩm", url: "/products" },
-          { name: product.name, url: `/products/${product.slug}` },
+          { name: "Sản Phẩm", url: "/san-pham" },
+          { name: product.name, url: `/san-pham/${product.slug}` },
         ]}
       />
 
@@ -95,7 +95,7 @@ export default async function ProductDetailPage({
         <nav className="mb-8 flex items-center gap-2 text-[0.85rem] text-grayline-600">
           <Link href="/" className="hover:text-orange-500">Trang Chủ</Link>
           <span>/</span>
-          <Link href="/products" className="hover:text-orange-500">Sản Phẩm</Link>
+          <Link href="/san-pham" className="hover:text-orange-500">Sản Phẩm</Link>
           <span>/</span>
           <span className="text-navy-800">{product.name}</span>
         </nav>

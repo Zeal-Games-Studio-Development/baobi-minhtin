@@ -3,6 +3,7 @@ import { ArrowRight, BoxSelect } from "lucide-react";
 import { getProductRepository } from "@/lib/products";
 import ProductCard from "@/components/product/ProductCard";
 import Reveal from "@/components/Reveal";
+import { routes } from "@/lib/site";
 
 export default async function ProductsShowcase() {
   const repo = getProductRepository();
@@ -22,7 +23,7 @@ export default async function ProductsShowcase() {
                 Hệ sinh thái bao bì đa dạng phục vụ mọi ngành hàng B2B.
               </p>
             </div>
-            <Link href="/products" className="btn-ghost">
+            <Link href={routes.products} className="btn-ghost">
               Xem Tất Cả <ArrowRight size={14} />
             </Link>
           </div>
@@ -37,7 +38,7 @@ export default async function ProductsShowcase() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/products" className="btn-ghost" style={{ fontSize: "1rem", padding: "16px 40px" }}>
+          <Link href={routes.products} className="btn-ghost" style={{ fontSize: "1rem", padding: "16px 40px" }}>
             Xem Toàn Bộ Danh Mục <ArrowRight size={16} />
           </Link>
         </div>

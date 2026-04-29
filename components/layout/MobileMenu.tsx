@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { routes } from "@/lib/site";
 
 interface Props {
   open: boolean;
@@ -43,7 +44,7 @@ export default function MobileMenu({ open, onClose, activePath, topLinks }: Prop
         </button>
         <nav className="flex flex-col gap-2">
           <Link href="/" onClick={onClose} className={drawerCls(activePath === "/")}>Trang Chủ</Link>
-          <Link href="/products" onClick={onClose} className={drawerCls(activePath?.startsWith("/products") ?? false)}>Sản Phẩm</Link>
+          <Link href={routes.products} onClick={onClose} className={drawerCls(activePath?.startsWith(routes.products) ?? false)}>Sản Phẩm</Link>
           {topLinks
             .filter((l) => l.href !== "/")
             .map((l) => (
@@ -53,7 +54,7 @@ export default function MobileMenu({ open, onClose, activePath, topLinks }: Prop
             ))}
         </nav>
         <div className="mt-8">
-          <Link href="/contact" onClick={onClose} className="btn btn-primary w-full justify-center">
+          <Link href={routes.contact} onClick={onClose} className="btn btn-primary w-full justify-center">
             Nhận Báo Giá
           </Link>
         </div>

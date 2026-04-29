@@ -9,13 +9,30 @@ export const metadata: Metadata = {
   title: "Hệ Sinh Thái Sản Phẩm",
   description:
     "Danh mục bao bì toàn diện của Minh Tín Plastics: màng PE, thùng carton, hộp ship COD, túi giấy và phụ kiện đóng gói.",
-  alternates: { canonical: "/products" },
+  alternates: { canonical: "/san-pham" },
   openGraph: {
     title: "Hệ Sinh Thái Sản Phẩm | Minh Tín Plastics",
     description:
       "Danh mục bao bì toàn diện: màng PE, thùng carton, hộp ship COD, túi giấy và phụ kiện đóng gói B2B.",
-    url: `${site.url}/products`,
+    url: `${site.url}/san-pham`,
     type: "website",
+    locale: "vi_VN",
+    siteName: site.name,
+    images: [
+      {
+        url: `${site.url}/images/hero_banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "Hệ Sinh Thái Sản Phẩm Minh Tín Plastics",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hệ Sinh Thái Sản Phẩm | Minh Tín Plastics",
+    description:
+      "Danh mục bao bì toàn diện: màng PE, thùng carton, hộp ship COD, túi giấy và phụ kiện đóng gói B2B.",
+    images: [`${site.url}/images/hero_banner.png`],
   },
 };
 
@@ -28,7 +45,7 @@ export default async function ProductsPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Trang Chủ", url: "/" },
-          { name: "Sản Phẩm", url: "/products" },
+          { name: "Sản Phẩm", url: "/san-pham" },
         ]}
       />
 

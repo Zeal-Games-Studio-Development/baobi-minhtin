@@ -32,7 +32,7 @@ export default function WhyUsBento() {
                   Không qua trung gian, không chi phí phát sinh. Mọi sản phẩm đều xuất thẳng từ dây
                   chuyền sản xuất của chúng tôi với mức giá cạnh tranh nhất thị trường.
                 </p>
-                <Link href="/contact" className="btn btn-primary mt-6">Nhận Báo Giá Ngay</Link>
+                <Link href="/lien-he" className="btn btn-primary mt-6">Nhận Báo Giá Ngay</Link>
               </div>
               <div className="relative h-[220px] overflow-hidden rounded-sm">
                 <Image src="/images/factory.png" alt="Nhà máy" fill sizes="(max-width:1024px) 100vw, 33vw" className="object-cover" />

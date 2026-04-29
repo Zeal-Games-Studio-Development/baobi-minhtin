@@ -45,7 +45,7 @@ export default function FaqAccordion() {
                 <p className="mb-5 text-[0.9rem] opacity-70">
                   Đội ngũ tư vấn của chúng tôi luôn sẵn sàng hỗ trợ bạn.
                 </p>
-                <Link href="/contact" className="btn btn-primary" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
+                <Link href="/lien-he" className="btn btn-primary" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
                   <Headset size={14} /> Liên Hệ Tư Vấn
                 </Link>
               </div>

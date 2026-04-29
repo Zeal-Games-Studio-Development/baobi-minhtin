@@ -39,7 +39,9 @@ export function OrganizationJsonLd() {
       availableLanguage: ["Vietnamese", "English"],
     },
     email: site.email,
-    sameAs: [site.zaloHref, site.messengerHref].filter(Boolean),
+    sameAs: [site.zaloHref, site.messengerHref].filter(
+      (u) => Boolean(u) && u.length > 10,
+    ),
   };
   return <JsonLdScript data={data} />;
 }
@@ -57,7 +59,7 @@ export function WebSiteJsonLd() {
 }
 
 export function ProductJsonLd({ product }: { product: Product }) {
-  const url = `${site.url}/products/${product.slug}`;
+  const url = `${site.url}/san-pham/${product.slug}`;
   const images = product.images.map((i) =>
     i.src.startsWith("http") ? i.src : `${site.url}${i.src}`,
   );
@@ -97,7 +99,7 @@ export function ProductJsonLd({ product }: { product: Product }) {
 }
 
 export function ArticleJsonLd({ article }: { article: NewsArticle }) {
-  const url = `${site.url}/news/${article.slug}`;
+  const url = `${site.url}/tin-tuc/${article.slug}`;
   const image = article.image.src.startsWith("http")
     ? article.image.src
     : `${site.url}${article.image.src}`;

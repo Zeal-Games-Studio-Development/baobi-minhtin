@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { site } from "@/lib/site";
+import { site, routes } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -23,10 +23,10 @@ export default function Footer() {
               Sản Phẩm Chính
             </h4>
             <ul className="space-y-3">
-              <FooterLi href="/products/mang-pe-stretch">Màng Stretch Film PE</FooterLi>
-              <FooterLi href="/products/thung-carton-5-7-lop">Thùng Carton Xuất Khẩu</FooterLi>
-              <FooterLi href="/products/hop-cod-ship">Hộp Ship COD E-Commerce</FooterLi>
-              <FooterLi href="/products/tui-giay-cao-cap">Túi Giấy Thời Trang</FooterLi>
+              <FooterLi href={routes.product("mang-pe-stretch")}>Màng Stretch Film PE</FooterLi>
+              <FooterLi href={routes.product("thung-carton-5-7-lop")}>Thùng Carton Xuất Khẩu</FooterLi>
+              <FooterLi href={routes.product("hop-cod-ship")}>Hộp Ship COD E-Commerce</FooterLi>
+              <FooterLi href={routes.product("tui-giay-cao-cap")}>Túi Giấy Thời Trang</FooterLi>
             </ul>
           </div>
 

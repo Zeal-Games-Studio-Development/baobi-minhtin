@@ -10,24 +10,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     productRepo.listSlugs(),
     newsRepo.list(),
   ]);
-  const now = new Date();
+  const lastDeploy = new Date("2026-04-29");
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${site.url}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${site.url}/products`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${site.url}/news`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
-    { url: `${site.url}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${site.url}/`, lastModified: lastDeploy, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${site.url}/san-pham`, lastModified: lastDeploy, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${site.url}/tin-tuc`, lastModified: lastDeploy, changeFrequency: "daily", priority: 0.8 },
+    { url: `${site.url}/lien-he`, lastModified: lastDeploy, changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const productRoutes: MetadataRoute.Sitemap = productSlugs.map((slug) => ({
-    url: `${site.url}/products/${slug}`,
-    lastModified: now,
+    url: `${site.url}/san-pham/${slug}`,
+    lastModified: lastDeploy,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const newsRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
-    url: `${site.url}/news/${a.slug}`,
+    url: `${site.url}/tin-tuc/${a.slug}`,
     lastModified: new Date(a.publishedAt),
     changeFrequency: "monthly",
     priority: 0.7,

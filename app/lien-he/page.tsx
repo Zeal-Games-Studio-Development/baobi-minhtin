@@ -6,7 +6,31 @@ export const metadata: Metadata = {
   title: "Liên Hệ 24/7",
   description:
     "Liên hệ bộ phận B2B của Minh Tín Plastics để được tư vấn giải pháp bao bì tối ưu — phản hồi trong 30 phút làm việc.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/lien-he" },
+  openGraph: {
+    title: "Liên Hệ 24/7 | Minh Tín Plastics",
+    description:
+      "Liên hệ bộ phận B2B của Minh Tín Plastics để được tư vấn giải pháp bao bì tối ưu — phản hồi trong 30 phút làm việc.",
+    url: `${site.url}/lien-he`,
+    type: "website",
+    locale: "vi_VN",
+    siteName: site.name,
+    images: [
+      {
+        url: `${site.url}/images/hero_banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "Liên Hệ Minh Tín Plastics",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Liên Hệ 24/7 | Minh Tín Plastics",
+    description:
+      "Liên hệ bộ phận B2B của Minh Tín Plastics để được tư vấn giải pháp bao bì tối ưu — phản hồi trong 30 phút làm việc.",
+    images: [`${site.url}/images/hero_banner.png`],
+  },
 };
 
 export default function ContactPage() {

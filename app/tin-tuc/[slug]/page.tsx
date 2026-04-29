@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   const title = article.seo?.title ?? article.title;
   const description = article.seo?.description ?? article.excerpt;
-  const url = `${site.url}/news/${article.slug}`;
+  const url = `${site.url}/tin-tuc/${article.slug}`;
   const ogImage = article.image.src.startsWith("http")
     ? article.image.src
     : `${site.url}${article.image.src}`;
@@ -33,7 +33,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/news/${article.slug}` },
+    alternates: { canonical: `/tin-tuc/${article.slug}` },
     openGraph: {
       type: "article",
       title,
@@ -82,8 +82,8 @@ export default async function NewsDetailPage({
       <BreadcrumbJsonLd
         items={[
           { name: "Trang Chủ", url: "/" },
-          { name: "Tin Tức", url: "/news" },
-          { name: article.title, url: `/news/${article.slug}` },
+          { name: "Tin Tức", url: "/tin-tuc" },
+          { name: article.title, url: `/tin-tuc/${article.slug}` },
         ]}
       />
 
@@ -93,7 +93,7 @@ export default async function NewsDetailPage({
             <nav className="mb-6 flex items-center gap-2 text-[0.85rem] text-white/70">
               <Link href="/" className="hover:text-orange-400">Trang Chủ</Link>
               <span>/</span>
-              <Link href="/news" className="hover:text-orange-400">Tin Tức</Link>
+              <Link href="/tin-tuc" className="hover:text-orange-400">Tin Tức</Link>
             </nav>
             <div className="mb-4 flex items-center gap-4 text-[0.9rem] text-white/80">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-orange-400">
@@ -138,7 +138,7 @@ export default async function NewsDetailPage({
           />
 
           <div className="mt-12 border-t border-grayline-200 pt-8">
-            <Link href="/news" className="inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-orange-500">
+            <Link href="/tin-tuc" className="inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-orange-500">
               <ArrowLeft size={16} /> Quay lại Tin Tức
             </Link>
           </div>
@@ -152,7 +152,7 @@ export default async function NewsDetailPage({
             <div className="grid gap-6 md:grid-cols-3">
               {related.map((r) => (
                 <article key={r.slug} className="group overflow-hidden rounded-xl border border-grayline-200 bg-white transition-all hover:-translate-y-1 hover:shadow-card">
-                  <Link href={`/news/${r.slug}`} className="block">
+                  <Link href={`/tin-tuc/${r.slug}`} className="block">
                     <div className="relative h-44 overflow-hidden">
                       <Image src={r.image.src} alt={r.image.alt} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>

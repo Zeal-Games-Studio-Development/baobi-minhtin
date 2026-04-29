@@ -2,12 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Product } from "@/lib/products/types";
 import { ArrowRight, Eye } from "lucide-react";
+import { routes } from "@/lib/site";
 
 export default function ProductCard({ product }: { product: Product }) {
   const img = product.images[0];
   return (
     <Link
-      href={`/products/${product.slug}`}
+      href={routes.product(product.slug)}
       className="group block overflow-hidden rounded-md border border-grayline-200 bg-white transition-all hover:-translate-y-2 hover:border-transparent hover:shadow-lgnavy"
     >
       <div className="relative h-[200px] overflow-hidden bg-grayline-100">

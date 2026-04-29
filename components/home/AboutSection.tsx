@@ -48,7 +48,7 @@ export default function AboutSection() {
                 <FeaturePill icon={<Award size={18} />}>Chuẩn Xuất Khẩu US / EU</FeaturePill>
                 <FeaturePill icon={<Truck size={18} />}>Giao Hàng Đúng Hạn</FeaturePill>
               </div>
-              <Link href="/contact" className="btn btn-primary">
+              <Link href="/lien-he" className="btn btn-primary">
                 <FileSignature size={16} /> Yêu Cầu Tư Vấn
               </Link>
             </div>

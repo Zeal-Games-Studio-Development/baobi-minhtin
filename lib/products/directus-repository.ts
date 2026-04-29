@@ -94,7 +94,7 @@ export class DirectusProductRepository implements ProductRepository {
         {
           label: "Nhận Báo Giá",
           variant: "primary",
-          href: "/contact",
+          href: "/lien-he",
           icon: "paper-plane",
         },
       ],

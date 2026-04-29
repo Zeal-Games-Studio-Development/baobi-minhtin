@@ -7,19 +7,20 @@ import { usePathname } from "next/navigation";
 import { Menu, ChevronDown, FileText } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import HeaderScrollWatcher from "./HeaderScrollWatcher";
+import { routes } from "@/lib/site";
 
 const megaLinks = [
-  { href: "/products/mang-pe-stretch", label: "Màng PE / Nilon", img: "/images/mang_pe.png" },
-  { href: "/products/thung-carton-5-7-lop", label: "Thùng Carton", img: "/images/thung_carton.png" },
-  { href: "/products/hop-cod-ship", label: "Hộp COD / Ship", img: "/images/hop_cod.png" },
-  { href: "/products/tui-giay-cao-cap", label: "Túi Giấy B2B", img: "/images/tui_giay.png" },
+  { href: routes.product("mang-pe-stretch"), label: "Màng PE / Nilon", img: "/images/mang_pe.png" },
+  { href: routes.product("thung-carton-5-7-lop"), label: "Thùng Carton", img: "/images/thung_carton.png" },
+  { href: routes.product("hop-cod-ship"), label: "Hộp COD / Ship", img: "/images/hop_cod.png" },
+  { href: routes.product("tui-giay-cao-cap"), label: "Túi Giấy B2B", img: "/images/tui_giay.png" },
 ];
 
 const topLinks = [
-  { href: "/", label: "Trang Chủ" },
-  { href: "/#about", label: "Năng Lực" },
-  { href: "/news", label: "Tin Tức" },
-  { href: "/contact", label: "Liên Hệ" },
+  { href: routes.home, label: "Trang Chủ" },
+  { href: routes.about, label: "Năng Lực" },
+  { href: routes.news, label: "Tin Tức" },
+  { href: routes.contact, label: "Liên Hệ" },
 ];
 
 export default function Header() {
@@ -47,7 +48,7 @@ export default function Header() {
                 <Link href="/" className={navCls(isActive("/") && activePath === "/")}>Trang Chủ</Link>
               </li>
               <li className="has-mega-menu relative">
-                <Link href="/products" className={navCls(isActive("/products"))}>
+                <Link href={routes.products} className={navCls(isActive(routes.products))}>
                   Sản Phẩm <ChevronDown size={12} />
                 </Link>
                 <div className="mega-menu absolute top-[calc(100%+16px)] left-1/2 w-[720px] rounded-[16px] border border-white/10 bg-[rgba(10,25,41,0.97)] p-7 shadow-navy backdrop-blur-xl z-[1001]">
@@ -66,13 +67,13 @@ export default function Header() {
                 </div>
               </li>
               <li><Link href="/#about" className={navCls(false)}>Năng Lực</Link></li>
-              <li><Link href="/news" className={navCls(isActive("/news"))}>Tin Tức</Link></li>
-              <li><Link href="/contact" className={navCls(isActive("/contact"))}>Liên Hệ</Link></li>
+              <li><Link href={routes.news} className={navCls(isActive(routes.news))}>Tin Tức</Link></li>
+              <li><Link href={routes.contact} className={navCls(isActive(routes.contact))}>Liên Hệ</Link></li>
             </ul>
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link href="/contact" className="btn btn-primary hidden md:inline-flex" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
+            <Link href={routes.contact} className="btn btn-primary hidden md:inline-flex" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
               <FileText size={16} /> Nhận Báo Giá
             </Link>
             <button

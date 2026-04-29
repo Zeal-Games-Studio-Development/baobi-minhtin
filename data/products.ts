@@ -26,7 +26,7 @@ export const products: Product[] = [
       { label: "MOQ (Số lượng tối thiểu)", value: "Từ 500 Cuộn" },
     ],
     ctas: [
-      { label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" },
+      { label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" },
       { label: "Gọi Tư Vấn: 090 000 0000", href: "tel:090000000", variant: "outline", icon: "phone" },
     ],
     longDescription:
@@ -65,7 +65,7 @@ export const products: Product[] = [
       { label: "MOQ (Số lượng tối thiểu)", value: "Từ 1,000 Thùng" },
     ],
     ctas: [
-      { label: "Yêu Cầu Báo Giá Nhóm Phân Khúc Này", href: "/contact", variant: "primary", icon: "paper-plane" },
+      { label: "Yêu Cầu Báo Giá Nhóm Phân Khúc Này", href: "/lien-he", variant: "primary", icon: "paper-plane" },
     ],
     longDescription:
       "Giải pháp thùng carton siêu cứng cáp chuyên dùng để đóng gói hàng hóa siêu trọng, thiết bị kỹ thuật hay hàng hóa xuất khẩu vận chuyển đường biển dài ngày. Chống va đập và bục vỡ tuyệt đối.",
@@ -91,7 +91,7 @@ export const products: Product[] = [
       { label: "Đóng Gói Khuyên Dùng", value: "Thời trang, Mỹ phẩm, Phụ kiện công nghệ, Đồ gia dụng nhỏ" },
       { label: "In Ấn Theo Yêu Cầu (Custom)", value: "Hỗ trợ in Logo, Thank You Card bên trong hộp" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá Sỉ", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá Sỉ", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Hộp carton bế nắp gài tối ưu hóa thời gian đóng gói. Kích thước chuẩn các đơn vị vận chuyển (GHTK, GHN, Shopee, TikTok Shop...). Tăng trải nghiệm đập hộp của khách hàng, chống móp méo vượt trội.",
     featured: true,
@@ -112,7 +112,7 @@ export const products: Product[] = [
       { label: "Tải Trọng Tối Đa", value: "Lên đến 15kg không đứt rách quai (tuỳ định lượng)" },
       { label: "MOQ (Số lượng tối thiểu)", value: "Từ 1,000 Sản phẩm gia công" },
     ],
-    ctas: [{ label: "Yêu Cầu Tư Vấn Mẫu", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Tư Vấn Mẫu", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Giải pháp hoàn hảo để nâng tầm trải nghiệm đập hộp và định vị thương hiệu xa xỉ. Túi giấy công nghiệp dành cho ngành Thời trang, Mỹ phẩm và Quà tặng doanh nghiệp B2B với tỷ lệ sắc nét tối đa trên từng đường in Offset.",
     featured: true,
@@ -131,7 +131,7 @@ export const products: Product[] = [
       { label: "Độ dày", value: "12 - 19 mic" },
       { label: "Ứng dụng", value: "Đóng gói mỹ phẩm, thực phẩm, sản phẩm trưng bày" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Màng co nhiệt POF độ trong suốt cao, thân thiện môi trường, thay thế tối ưu cho PVC trong ngành bao gói bán lẻ.",
     listingOrder: 5,
@@ -149,7 +149,7 @@ export const products: Product[] = [
       { label: "Chất liệu", value: "Duplex bồi sóng E, phủ màng BOPP" },
       { label: "Ứng dụng", value: "Hộp quà tặng doanh nghiệp, mỹ phẩm cao cấp" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Thùng nắp âm dương mang lại vẻ sang trọng tối giản, phù hợp định vị thương hiệu premium.",
     listingOrder: 6,
@@ -167,7 +167,7 @@ export const products: Product[] = [
       { label: "Chất liệu", value: "Giấy Kraft chống dầu, an toàn thực phẩm" },
       { label: "In ấn", value: "Flexo 1-2 màu, in Offset theo yêu cầu" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Hộp pizza chuyên dụng cho ngành F&B, giữ nhiệt tốt và an toàn thực phẩm theo tiêu chuẩn FDA.",
     listingOrder: 7,
@@ -185,7 +185,7 @@ export const products: Product[] = [
       { label: "Quai", value: "Quai xoắn giấy hoặc dây cói" },
       { label: "In ấn", value: "In Flexo 1-2 màu, thân thiện môi trường" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Túi Kraft tái chế thân thiện môi trường, phù hợp ngành thời trang, F&B và các thương hiệu xanh.",
     listingOrder: 8,
@@ -203,7 +203,7 @@ export const products: Product[] = [
       { label: "Khổ cuộn", value: "50cm / 1m / 1.2m / 1.5m" },
       { label: "Chất liệu", value: "PE nguyên sinh trong suốt, chống sốc" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Xốp hơi bong bóng đa công dụng, chống sốc cho hàng điện tử, đồ dễ vỡ và thiết bị công nghiệp.",
     listingOrder: 9,
@@ -221,7 +221,7 @@ export const products: Product[] = [
       { label: "Chất liệu", value: "Bột giấy tái chế, phân huỷ sinh học" },
       { label: "Ứng dụng", value: "Khay trứng, khay điện tử, khay linh kiện" },
     ],
-    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/contact", variant: "primary", icon: "paper-plane" }],
+    ctas: [{ label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" }],
     longDescription:
       "Khay giấy định hình thay thế xốp EPS truyền thống, đạt chuẩn xuất khẩu EU và phân huỷ sinh học.",
     listingOrder: 10,

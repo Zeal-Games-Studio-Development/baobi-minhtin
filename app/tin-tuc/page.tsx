@@ -10,13 +10,30 @@ export const metadata: Metadata = {
   title: "Tin Tức Công Nghiệp",
   description:
     "Cập nhật xu hướng bao bì, hoạt động doanh nghiệp và công nghệ mới tại Minh Tín Plastics.",
-  alternates: { canonical: "/news" },
+  alternates: { canonical: "/tin-tuc" },
   openGraph: {
     title: "Tin Tức Công Nghiệp | Minh Tín Plastics",
     description:
       "Cập nhật xu hướng bao bì, hoạt động doanh nghiệp và công nghệ mới tại Minh Tín Plastics.",
-    url: `${site.url}/news`,
+    url: `${site.url}/tin-tuc`,
     type: "website",
+    locale: "vi_VN",
+    siteName: site.name,
+    images: [
+      {
+        url: `${site.url}/images/hero_banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "Tin Tức Công Nghiệp Minh Tín Plastics",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tin Tức Công Nghiệp | Minh Tín Plastics",
+    description:
+      "Cập nhật xu hướng bao bì, hoạt động doanh nghiệp và công nghệ mới tại Minh Tín Plastics.",
+    images: [`${site.url}/images/hero_banner.png`],
   },
 };
 
@@ -29,7 +46,7 @@ export default async function NewsPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Trang Chủ", url: "/" },
-          { name: "Tin Tức", url: "/news" },
+          { name: "Tin Tức", url: "/tin-tuc" },
         ]}
       />
 
@@ -52,7 +69,7 @@ export default async function NewsPage() {
                 key={article.slug}
                 className="group flex flex-col overflow-hidden rounded-xl border border-grayline-200 bg-white transition-all hover:-translate-y-2 hover:border-navy-400 hover:shadow-lgnavy"
               >
-                <Link href={`/news/${article.slug}`} className="block">
+                <Link href={`/tin-tuc/${article.slug}`} className="block">
                   <div className="relative h-[220px] w-full overflow-hidden border-b-[3px] border-orange-500">
                     <Image
                       src={article.image.src}
@@ -73,7 +90,7 @@ export default async function NewsPage() {
                     </span>
                   </div>
                   <h2 className="mb-3 text-[1.25rem] font-bold leading-snug text-navy-900 transition-colors group-hover:text-navy-700">
-                    <Link href={`/news/${article.slug}`} className="hover:text-orange-500">
+                    <Link href={`/tin-tuc/${article.slug}`} className="hover:text-orange-500">
                       {article.title}
                     </Link>
                   </h2>
@@ -81,7 +98,7 @@ export default async function NewsPage() {
                     {article.excerpt}
                   </p>
                   <Link
-                    href={`/news/${article.slug}`}
+                    href={`/tin-tuc/${article.slug}`}
                     className="mt-auto inline-flex items-center gap-2 font-semibold text-orange-500 transition-all hover:gap-3 hover:text-orange-600"
                   >
                     Đọc chi tiết <ArrowRight size={14} />
