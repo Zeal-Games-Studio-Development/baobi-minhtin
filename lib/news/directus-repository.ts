@@ -16,6 +16,7 @@ interface DirectusPost {
   tag?: string;
   excerpt?: string;
   content?: string;
+  description?: string;
   date_created?: string;
   author?: {
     first_name?: string;
@@ -32,7 +33,7 @@ export class DirectusNewsRepository implements NewsRepository {
   private async fetchData(): Promise<DirectusPost[]> {
     try {
       const res = await fetch(`${CMS_URL}/items/posts?fields=*`, {
-        next: { revalidate: 60 },
+        next: { revalidate: 60, tags: ['posts'] },
       });
       if (!res.ok) {
         throw new Error("Failed to fetch posts from CMS");
@@ -47,7 +48,7 @@ export class DirectusNewsRepository implements NewsRepository {
 
   private mapToPost(item: DirectusPost): NewsArticle {
     const title = item.title || "Bài viết Chưa tên";
-    const slug = item.slug || item.id || Math.random().toString();
+    const slug = item.slug || Math.random().toString();
     const tag: NewsTag = (item.tag as NewsTag) || "Tin Tức";
 
     let image: NewsImage = {
@@ -75,8 +76,8 @@ export class DirectusNewsRepository implements NewsRepository {
       displayDate,
       tag,
       image,
-      excerpt: item.excerpt || "Đang cập nhật...",
-      bodyHtml: item.content || "<p>Nội dung đang cập nhật...</p>",
+      excerpt: item.excerpt || item.seo_description?.replace(/<[^>]*>?/gm, "").trim() || "Đang cập nhật...",
+      bodyHtml: item.content || item.description || "<p>Nội dung đang cập nhật...</p>",
       author: {
         name: authorName,
         role: item.author?.role?.name || "Biên tập viên",
@@ -116,7 +117,7 @@ export class DirectusNewsRepository implements NewsRepository {
   async getBySlug(slug: string): Promise<NewsArticle | null> {
     const rawData = await this.fetchData();
     const item = rawData.find(
-      (p) => p.status === "published" && (p.slug === slug || p.id === slug)
+      (p) => p.status === "published" && p.slug === slug
     );
     if (!item) return null;
     return this.mapToPost(item);
@@ -125,8 +126,8 @@ export class DirectusNewsRepository implements NewsRepository {
   async listSlugs(): Promise<string[]> {
     const rawData = await this.fetchData();
     return rawData
-      .filter((p) => p.status === "published")
-      .map((p) => p.slug || p.id);
+      .filter((p) => p.status === "published" && p.slug)
+      .map((p) => p.slug as string);
   }
 
   async listTags(): Promise<NewsTag[]> {

@@ -66,7 +66,7 @@ export default function Header() {
                   </div>
                 </div>
               </li>
-              <li><Link href="/#about" className={navCls(false)}>Năng Lực</Link></li>
+              <li><Link href={routes.about} className={navCls(isActive(routes.about))}>Năng Lực</Link></li>
               <li><Link href={routes.news} className={navCls(isActive(routes.news))}>Tin Tức</Link></li>
               <li><Link href={routes.contact} className={navCls(isActive(routes.contact))}>Liên Hệ</Link></li>
             </ul>

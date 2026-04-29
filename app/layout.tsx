@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import TopBar from "@/components/layout/TopBar";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
+import LiveReloader from "@/components/LiveReloader";
 import { site } from "@/lib/site";
 
 const beVietnam = Be_Vietnam_Pro({
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className={beVietnam.variable} suppressHydrationWarning>
       <body className="font-sans">
+        <LiveReloader />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <TopBar />

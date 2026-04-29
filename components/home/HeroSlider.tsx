@@ -30,7 +30,7 @@ const slides = [
     alt: "Nhà Máy",
     badgeNumber: "5000",
     badgeLabel: "m² Diện Tích",
-    cta1: { href: "#about", label: "Tìm Hiểu Năng Lực", icon: <Factory size={16} /> },
+    cta1: { href: "/nang-luc", label: "Tìm Hiểu Năng Lực", icon: <Factory size={16} /> },
   },
   {
     tag: "Công Nghệ Tân Tiến",

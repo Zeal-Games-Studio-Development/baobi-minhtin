@@ -24,6 +24,8 @@ interface DirectusProduct {
   ctas?: unknown[];
   featured?: boolean;
   sort?: number;
+  seo_title?: string;
+  seo_description?: string;
   [key: string]: unknown;
 }
 
@@ -32,7 +34,7 @@ export class DirectusProductRepository implements ProductRepository {
   private async fetchData(): Promise<DirectusProduct[]> {
     try {
       const res = await fetch(`${CMS_URL}/items/products?fields=*`, {
-        next: { revalidate: 60 },
+        next: { revalidate: 60, tags: ['products'] },
       });
       if (!res.ok) {
         throw new Error("Failed to fetch products from CMS");
@@ -47,7 +49,7 @@ export class DirectusProductRepository implements ProductRepository {
 
   private mapToProduct(item: DirectusProduct): Product {
     const name = item.title || item.name || "Sản phẩm Chưa tên";
-    const slug = item.slug || item.id || Math.random().toString();
+    const slug = item.slug || Math.random().toString();
     const category: ProductCategory =
       (item.category as ProductCategory) || "other";
 
@@ -84,9 +86,9 @@ export class DirectusProductRepository implements ProductRepository {
       category,
       categoryLabel: CATEGORY_LABEL[category] ?? "Sản phẩm",
       shortDescription:
-        item.shortDescription ||
-        item.description ||
+        (item.shortDescription || item.description || "")?.replace(/<[^>]*>?/gm, "").trim() ||
         "Mô tả đang cập nhật từ CMS...",
+      longDescriptionHtml: item.description,
       priceLabel: item.priceLabel || "Liên hệ nhận báo giá",
       images: mappedImages,
       specs: (item.specs as Product["specs"]) || [],
@@ -98,6 +100,10 @@ export class DirectusProductRepository implements ProductRepository {
           icon: "paper-plane",
         },
       ],
+      seo: {
+        title: item.seo_title,
+        description: item.seo_description?.replace(/<[^>]*>?/gm, "").trim(),
+      },
       featured: item.featured ?? false,
       listingOrder: item.sort || 999,
     };
@@ -124,7 +130,7 @@ export class DirectusProductRepository implements ProductRepository {
   async getBySlug(slug: string): Promise<Product | null> {
     const rawData = await this.fetchData();
     const item = rawData.find(
-      (p) => p.status === "published" && (p.slug === slug || p.id === slug)
+      (p) => p.status === "published" && p.slug === slug
     );
     if (!item) return null;
     return this.mapToProduct(item);
@@ -133,8 +139,8 @@ export class DirectusProductRepository implements ProductRepository {
   async listSlugs(): Promise<string[]> {
     const rawData = await this.fetchData();
     return rawData
-      .filter((p) => p.status === "published")
-      .map((p) => p.slug || p.id);
+      .filter((p) => p.status === "published" && p.slug)
+      .map((p) => p.slug as string);
   }
 
   async listCategories(): Promise<ProductCategory[]> {

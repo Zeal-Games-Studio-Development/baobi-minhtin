@@ -20,7 +20,7 @@ export const site = {
 
 export const routes = {
   home: "/",
-  about: "/#about",
+  about: "/nang-luc",
   products: "/san-pham",
   product: (slug: string) => `/san-pham/${slug}`,
   news: "/tin-tuc",
