@@ -136,7 +136,7 @@ export default async function ProductDetailPage({
 
         {product.longDescriptionHtml && (
           <div className="mt-20 border-t border-grayline-200 pt-14">
-            <h2 className="mb-5 text-3xl font-bold text-navy-900">Chi tiết và Ứng dụng</h2>
+            <h2 className="mb-5 text-3xl font-bold text-navy-900">Chi tiết</h2>
             <div
               className="prose prose-lg max-w-none text-grayline-600 [&_ul]:ml-5 [&_ul]:list-disc [&_p]:mb-4 [&_ul]:mb-4 [&_h3]:mb-3 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-navy-900"
               dangerouslySetInnerHTML={{ __html: product.longDescriptionHtml }}

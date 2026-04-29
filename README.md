@@ -250,7 +250,7 @@ Sửa file `data/products.ts`. Mỗi sản phẩm là 1 object theo interface `P
   categoryLabel: "Màng PE / Nilon",
   shortDescription: "...",      // hiển thị trên card
   longDescription: "...",       // đoạn văn dưới giá
-  longDescriptionHtml: "...",   // optional, HTML rich cho section "Chi tiết và Ứng dụng"
+  longDescriptionHtml: "...",   // optional, HTML rich cho section "Chi tiết"
   priceLabel: "Liên Hệ Báo Giá Xưởng",
   images: [{ src: "/images/xxx.png", alt: "..." }],
   specs: [{ label: "...", value: "..." }, ...],
