@@ -8,13 +8,13 @@ export default function LiveReloader() {
 
   useEffect(() => {
     // Chỉ kích hoạt ở môi trường dev để tránh spam server thật
-    if (process.env.NODE_ENV !== "development") return;
+    // if (process.env.NODE_ENV !== "development") return;
 
     const intervalId = setInterval(() => {
       // Hàm router.refresh() sẽ tự động tải lại dữ liệu từ Server 
       // mà không làm F5 chớp màn hình.
       router.refresh();
-    }, 10000); // Mỗi 10 giây kiểm tra 1 lần
+    }, 60000); // Mỗi 60 giây kiểm tra 1 lần
 
     return () => clearInterval(intervalId);
   }, [router]);
