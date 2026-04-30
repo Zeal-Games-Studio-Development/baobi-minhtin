@@ -47,7 +47,7 @@
 //   const secret = request.nextUrl.searchParams.get('secret')
 //   const path = request.nextUrl.searchParams.get('path') || '/'
 //   const tag = request.nextUrl.searchParams.get('tag')
-  
+
 //   if (secret !== 'minh_tin_web_hook') {
 //     return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
 //   }
@@ -60,3 +60,5 @@
 
 //   return NextResponse.json({ revalidated: true, now: Date.now() })
 // }
+
+export {}
