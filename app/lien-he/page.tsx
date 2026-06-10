@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { MapPin, Building2, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Building2, Phone, Mail } from "lucide-react";
+import CustomerRequestForm from "@/components/contact/CustomerRequestForm";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -52,23 +53,7 @@ export default function ContactPage() {
               <h2 className="mb-8 text-3xl font-extrabold text-navy-900">
                 Gửi Yêu Cầu Cho Minh Tín
               </h2>
-              <form action="#" method="POST" className="space-y-6">
-                <Field label="Họ Tên / Tên Doanh Nghiệp *" name="name">
-                  <input type="text" name="name" required placeholder="Nhập tên gọi hoặc công ty" className="cf-input" />
-                </Field>
-                <Field label="Email Liên Hệ *" name="email">
-                  <input type="email" name="email" required placeholder="example@mtplastics.com" className="cf-input" />
-                </Field>
-                <Field label="Số Điện Thoại Zalo/Call *" name="phone">
-                  <input type="tel" name="phone" required placeholder="09xx xxx xxx" className="cf-input" />
-                </Field>
-                <Field label="Nội Dung Yêu Cầu Báo Giá" name="message">
-                  <textarea rows={5} name="message" placeholder="Bạn cần tư vấn chi tiết về Màng PE, Thùng Carton hay Túi giấy..." className="cf-input" />
-                </Field>
-                <button type="submit" className="btn btn-primary w-full justify-center" style={{ padding: "18px", fontSize: "1.05rem" }}>
-                  Gửi Tin Nhắn Ngay <Send size={16} />
-                </button>
-              </form>
+              <CustomerRequestForm />
             </div>
 
             <div className="rounded-xl bg-navy-700 p-10 text-white">
@@ -100,19 +85,13 @@ export default function ContactPage() {
           outline: none; border-color: #1A3C5B;
           box-shadow: 0 0 0 3px rgba(26, 60, 91, 0.1);
         }
+        .cf-input-error,
+        .cf-input-error:focus {
+          border-color: #dc2626;
+          box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.14);
+        }
       `}</style>
     </main>
-  );
-}
-
-function Field({ label, name, children }: { label: string; name: string; children: React.ReactNode }) {
-  return (
-    <div>
-      <label htmlFor={name} className="mb-2 block font-semibold text-navy-900">
-        {label}
-      </label>
-      {children}
-    </div>
   );
 }
 

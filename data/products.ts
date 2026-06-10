@@ -27,7 +27,7 @@ export const products: Product[] = [
     ],
     ctas: [
       { label: "Yêu Cầu Báo Giá", href: "/lien-he", variant: "primary", icon: "paper-plane" },
-      { label: "Gọi Tư Vấn: 090 000 0000", href: "tel:090000000", variant: "outline", icon: "phone" },
+      { label: "Gọi Tư Vấn: 0812 021 610", href: "tel:0812021610", variant: "outline", icon: "phone" },
     ],
     longDescription:
       "Giải pháp màng chít bọc hàng hoá (PE Stretch Film) chuyên dụng cho công nghiệp B2B với tỷ lệ co giãn tối đa lên đến 300%. Đảm bảo tuyệt đối an toàn cho hàng hóa trong quá trình lưu kho và vận chuyển đường biển, hàng không.",

@@ -5,17 +5,17 @@ export const site = {
   description:
     "Minh Tín Plastics (MTP) - Nhà sản xuất bao bì, thùng carton, túi giấy, màng nhựa PE hàng đầu cho doanh nghiệp B2B tại Việt Nam.",
   url: "https://minhtinjsc.com",
-  email: "b2b@mtplastics.com",
-  contactEmail: "contact@mtplastics.com",
-  hotline: "090 000 0000",
-  hotlineHref: "tel:090000000",
-  zaloHref: "https://zalo.me/090000000",
+  email: "sales@minhtinjsc.com",
+  contactEmail: "sales@minhtinjsc.com",
+  hotline: "0812 021 610",
+  hotlineHref: "tel:0812021610",
+  zaloHref: "https://zalo.me/0812021610",
   messengerHref: "",
-  factoryAddress: "Lô A2, KCN Tân Bình, TP.HCM",
-  factoryAddressFull: "Lô A2, KCN Tân Bình, Phường 15, TP.HCM",
-  officeAddress: "Tầng 5, Tòa Nhà Bitexco, TP.HCM",
+  factoryAddress: "34 Ấp 7B, xã Mỹ Yên, Tỉnh Tây Ninh, Việt Nam",
+  factoryAddressFull: "34 Ấp 7B, xã Mỹ Yên, Tỉnh Tây Ninh, Việt Nam",
+  officeAddress: "34 Ấp 7B, xã Mỹ Yên, Tỉnh Tây Ninh, Việt Nam",
   mapEmbedSrc:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.04948791995!2d106.62646391480111!3d10.80665499230554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be3511eb9ab%3A0x6bba410b2716a50b!2zS0NOIFTDom4gQsOsbmgsIFBow7Dhu51uZyAxNSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1689650000000!5m2!1svi!2s",
+    "https://www.google.com/maps?q=34%20%E1%BA%A4p%207B%2C%20x%C3%A3%20M%E1%BB%B9%20Y%C3%AAn%2C%20T%E1%BB%89nh%20T%C3%A2y%20Ninh%2C%20Vi%E1%BB%87t%20Nam&output=embed",
 } as const;
 
 export const routes = {

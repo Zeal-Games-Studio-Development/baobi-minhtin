@@ -27,8 +27,8 @@ export function OrganizationJsonLd() {
     description: site.description,
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.factoryAddress,
-      addressLocality: "Hồ Chí Minh",
+      streetAddress: site.factoryAddressFull,
+      addressLocality: "Tây Ninh",
       addressCountry: "VN",
     },
     contactPoint: {
