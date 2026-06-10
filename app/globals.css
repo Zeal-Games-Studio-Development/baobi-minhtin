@@ -130,17 +130,6 @@ section[id] { scroll-margin-top: 96px; }
 }
 .slide.is-active .slide-image { transform: scale(1) translateX(0); opacity: 1; }
 
-/* ---------- mega menu hover ---------- */
-.has-mega-menu .mega-menu {
-  opacity: 0; visibility: hidden; pointer-events: none;
-  transform: translateX(-50%) translateY(8px);
-  transition: var(--trans);
-}
-.has-mega-menu:hover .mega-menu {
-  opacity: 1; visibility: visible; pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-
 /* ---------- FAQ accordion ---------- */
 .faq-answer {
   max-height: 0; overflow: hidden;
