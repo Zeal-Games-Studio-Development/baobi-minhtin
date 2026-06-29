@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PaperclipIcon, Phone, FileText } from "lucide-react";
 import { getProductRepository } from "@/lib/products";
 import ProductGallery from "@/components/product/ProductGallery";
-import SpecsTable from "@/components/product/SpecsTable";
+import ProductDetailImages from "@/components/product/ProductDetailImages";
 import { ProductJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
 
@@ -100,24 +100,30 @@ export default async function ProductDetailPage({
           <span className="text-navy-800">{product.name}</span>
         </nav>
 
-        <div className="grid gap-14 lg:grid-cols-2">
+        <div className="grid items-stretch gap-14 lg:grid-cols-2">
           <ProductGallery images={product.images} />
 
-          <div>
+          <div className="flex h-full flex-col">
             <div className="tag-label">{product.categoryLabel}</div>
             <h1 className="mb-4 text-3xl font-extrabold text-navy-900 md:text-4xl">
               {product.name}
             </h1>
-            <div className="mb-6 text-2xl font-bold text-orange-500">
-              {product.priceLabel}
-            </div>
-            {product.longDescription && (
-              <p className="mb-8 text-[1.05rem] leading-relaxed text-grayline-600">
-                {product.longDescription}
-              </p>
-            )}
 
-            <SpecsTable specs={product.specs} />
+            <div className="mt-4 flex-1 overflow-hidden rounded-xl border border-grayline-200 bg-offwhite p-6">
+              <h2 className="mb-4 text-2xl font-bold text-navy-900">Chi tiết</h2>
+              <div className="max-h-[360px] overflow-y-auto pr-3">
+                {product.longDescriptionHtml ? (
+                  <div
+                    className="prose prose-lg max-w-none text-grayline-600 [&_ul]:ml-5 [&_ul]:list-disc [&_p]:mb-4 [&_ul]:mb-4 [&_h3]:mb-3 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-navy-900"
+                    dangerouslySetInnerHTML={{ __html: product.longDescriptionHtml }}
+                  />
+                ) : (
+                  <p className="text-[1.05rem] leading-relaxed text-grayline-600">
+                    {product.longDescription ?? product.shortDescription}
+                  </p>
+                )}
+              </div>
+            </div>
 
             <div className="mt-6 flex flex-wrap gap-4">
               {product.ctas.map((cta) => (
@@ -134,14 +140,8 @@ export default async function ProductDetailPage({
           </div>
         </div>
 
-        {product.longDescriptionHtml && (
-          <div className="mt-20 border-t border-grayline-200 pt-14">
-            <h2 className="mb-5 text-3xl font-bold text-navy-900">Chi tiết</h2>
-            <div
-              className="prose prose-lg max-w-none text-grayline-600 [&_ul]:ml-5 [&_ul]:list-disc [&_p]:mb-4 [&_ul]:mb-4 [&_h3]:mb-3 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-navy-900"
-              dangerouslySetInnerHTML={{ __html: product.longDescriptionHtml }}
-            />
-          </div>
+        {product.detailImages && product.detailImages.length > 0 && (
+          <ProductDetailImages images={product.detailImages} />
         )}
       </div>
     </main>

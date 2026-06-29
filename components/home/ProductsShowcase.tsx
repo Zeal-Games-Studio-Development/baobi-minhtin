@@ -7,7 +7,7 @@ import { routes } from "@/lib/site";
 
 export default async function ProductsShowcase() {
   const repo = getProductRepository();
-  const products = await repo.list({ featured: true });
+  const products = await repo.list({ latest: true, limit: 5 });
 
   return (
     <section id="products" className="bg-offwhite py-24">
@@ -29,7 +29,7 @@ export default async function ProductsShowcase() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {products.map((p, i) => (
             <Reveal key={p.slug} delay={i * 50}>
               <ProductCard product={p} />

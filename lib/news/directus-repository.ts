@@ -25,6 +25,7 @@ interface DirectusPost {
   };
   seo_title?: string;
   seo_description?: string;
+  images?: ({ image?: string | null } | number)[];
   sort?: number;
   [key: string]: any;
 }
@@ -32,7 +33,7 @@ interface DirectusPost {
 export class DirectusNewsRepository implements NewsRepository {
   private async fetchData(): Promise<DirectusPost[]> {
     try {
-      const res = await fetch(`${CMS_URL}/items/posts?fields=*`, {
+      const res = await fetch(`${CMS_URL}/items/posts?fields=*,images.*`, {
         next: { revalidate: 60, tags: ['posts'] },
       });
       if (!res.ok) {
@@ -60,6 +61,18 @@ export class DirectusNewsRepository implements NewsRepository {
       image = { src: assetUrl(item.thumbnail), alt: title };
     }
 
+    const images: NewsImage[] = [];
+    if (Array.isArray(item.images)) {
+      for (const img of item.images) {
+        if (typeof img === "object" && img !== null && img.image) {
+          const src = assetUrl(img.image);
+          if (src !== image.src && !images.some((image) => image.src === src)) {
+            images.push({ src, alt: title });
+          }
+        }
+      }
+    }
+
     // Format date
     const dt = item.date_created ? new Date(item.date_created) : new Date();
     const publishedAt = dt.toISOString().split("T")[0];
@@ -76,6 +89,7 @@ export class DirectusNewsRepository implements NewsRepository {
       displayDate,
       tag,
       image,
+      images,
       excerpt: item.excerpt || item.seo_description?.replace(/<[^>]*>?/gm, "").trim() || "Đang cập nhật...",
       bodyHtml: item.content || item.description || "<p>Nội dung đang cập nhật...</p>",
       author: {

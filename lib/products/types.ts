@@ -32,11 +32,13 @@ export interface Product {
   longDescriptionHtml?: string;
   priceLabel: string;
   images: ProductImage[];
+  detailImages?: ProductImage[];
   specs: ProductSpecRow[];
   ctas: ProductCta[];
   seo?: { title?: string; description?: string };
   featured?: boolean;
   listingOrder?: number;
+  createdAt?: string;
 }
 
 export const CATEGORY_LABEL: Record<ProductCategory, string> = {

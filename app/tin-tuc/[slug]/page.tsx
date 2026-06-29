@@ -6,6 +6,7 @@ import { Calendar, Tag, ArrowLeft, User } from "lucide-react";
 import { getNewsRepository } from "@/lib/news";
 import { site } from "@/lib/site";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import ArticleImageCarousel from "@/components/news/ArticleImageCarousel";
 
 export async function generateStaticParams() {
   const repo = getNewsRepository();
@@ -136,6 +137,10 @@ export default async function NewsDetailPage({
               [&_strong]:text-navy-900 [&_strong]:font-semibold"
             dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
           />
+
+          {article.images && article.images.length > 0 && (
+            <ArticleImageCarousel images={article.images} />
+          )}
 
           <div className="mt-12 border-t border-grayline-200 pt-8">
             <Link href="/tin-tuc" className="inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-orange-500">

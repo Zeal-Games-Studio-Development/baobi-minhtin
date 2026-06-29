@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { getProductRepository } from "@/lib/products";
 import { site, routes } from "@/lib/site";
 
-export default function Footer() {
+export default async function Footer() {
+  const repo = getProductRepository();
+  const products = await repo.list({ latest: true, limit: 5 });
+
   return (
     <footer className="border-t border-white/5 bg-[#0A1929] px-0 pt-20 pb-7 text-white/60">
       <div className="container-x">
@@ -23,10 +27,11 @@ export default function Footer() {
               Sản Phẩm Chính
             </h4>
             <ul className="space-y-3">
-              <FooterLi href={routes.product("mang-pe-stretch")}>Màng Stretch Film PE</FooterLi>
-              <FooterLi href={routes.product("thung-carton-5-7-lop")}>Thùng Carton Xuất Khẩu</FooterLi>
-              <FooterLi href={routes.product("hop-cod-ship")}>Hộp Ship COD E-Commerce</FooterLi>
-              <FooterLi href={routes.product("tui-giay-cao-cap")}>Túi Giấy Thời Trang</FooterLi>
+              {products.map((product) => (
+                <FooterLi key={product.slug} href={routes.product(product.slug)}>
+                  {product.name}
+                </FooterLi>
+              ))}
             </ul>
           </div>
 

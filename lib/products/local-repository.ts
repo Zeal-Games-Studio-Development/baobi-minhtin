@@ -14,13 +14,27 @@ export class LocalProductRepository implements ProductRepository {
   async list(filter?: {
     category?: ProductCategory;
     featured?: boolean;
+    latest?: boolean;
+    limit?: number;
   }): Promise<Product[]> {
-    return this.data.filter((p) => {
+    let products = this.data.filter((p) => {
       if (filter?.category && p.category !== filter.category) return false;
       if (filter?.featured !== undefined && !!p.featured !== filter.featured)
         return false;
       return true;
     });
+
+    if (filter?.latest) {
+      products = [...products].sort(
+        (a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime(),
+      );
+    }
+
+    if (filter?.limit) {
+      products = products.slice(0, filter.limit);
+    }
+
+    return products;
   }
 
   async getBySlug(slug: string): Promise<Product | null> {

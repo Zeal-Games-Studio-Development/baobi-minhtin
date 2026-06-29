@@ -14,6 +14,7 @@ export interface NewsArticle {
   displayDate: string;
   tag: NewsTag;
   image: NewsImage;
+  images?: NewsImage[];
   excerpt: string;
   /** Plain-text body or HTML. We render `bodyHtml` if present. */
   bodyHtml: string;

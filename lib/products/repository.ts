@@ -4,6 +4,8 @@ export interface ProductRepository {
   list(filter?: {
     category?: ProductCategory;
     featured?: boolean;
+    latest?: boolean;
+    limit?: number;
   }): Promise<Product[]>;
   getBySlug(slug: string): Promise<Product | null>;
   listSlugs(): Promise<string[]>;

@@ -15,7 +15,7 @@ interface DirectusProduct {
   slug?: string;
   status: string;
   thumbnail: string | null;
-  images?: { directus_files_id: string | null }[] | string[];
+  images?: ({ directus_files_id?: string | null; image?: string | null } | string | number)[];
   category?: string;
   shortDescription?: string;
   description?: string;
@@ -24,6 +24,7 @@ interface DirectusProduct {
   ctas?: unknown[];
   featured?: boolean;
   sort?: number;
+  date_created?: string;
   seo_title?: string;
   seo_description?: string;
   [key: string]: unknown;
@@ -31,9 +32,9 @@ interface DirectusProduct {
 
 // ─── Repository ──────────────────────────────────────────────────────────────
 export class DirectusProductRepository implements ProductRepository {
-  private async fetchData(): Promise<DirectusProduct[]> {
+  private async fetchData(query = "fields=*,images.*"): Promise<DirectusProduct[]> {
     try {
-      const res = await fetch(`${CMS_URL}/items/products?fields=*`, {
+      const res = await fetch(`${CMS_URL}/items/products?${query}`, {
         next: { revalidate: 60, tags: ['products'] },
       });
       if (!res.ok) {
@@ -54,6 +55,7 @@ export class DirectusProductRepository implements ProductRepository {
       (item.category as ProductCategory) || "other";
 
     const mappedImages: ProductImage[] = [];
+    const detailImages: ProductImage[] = [];
 
     if (item.thumbnail) {
       mappedImages.push({ src: assetUrl(item.thumbnail), alt: name });
@@ -63,12 +65,17 @@ export class DirectusProductRepository implements ProductRepository {
       for (const img of item.images) {
         let fileId: string | null = null;
         if (typeof img === "object" && img !== null && "directus_files_id" in img) {
-          fileId = img.directus_files_id;
+          fileId = img.directus_files_id ?? null;
+        } else if (typeof img === "object" && img !== null && "image" in img) {
+          fileId = img.image ?? null;
         } else if (typeof img === "string") {
           fileId = img;
         }
         if (fileId) {
-          mappedImages.push({ src: assetUrl(fileId), alt: name });
+          const src = assetUrl(fileId);
+          if (src !== mappedImages[0]?.src && !detailImages.some((image) => image.src === src)) {
+            detailImages.push({ src, alt: name });
+          }
         }
       }
     }
@@ -91,6 +98,7 @@ export class DirectusProductRepository implements ProductRepository {
       longDescriptionHtml: item.description,
       priceLabel: item.priceLabel || "Liên hệ nhận báo giá",
       images: mappedImages,
+      detailImages,
       specs: (item.specs as Product["specs"]) || [],
       ctas: (item.ctas as Product["ctas"]) || [
         {
@@ -106,25 +114,50 @@ export class DirectusProductRepository implements ProductRepository {
       },
       featured: item.featured ?? false,
       listingOrder: item.sort || 999,
+      createdAt: item.date_created,
     };
   }
 
   async list(filter?: {
     category?: ProductCategory;
     featured?: boolean;
+    latest?: boolean;
+    limit?: number;
   }): Promise<Product[]> {
-    const rawData = await this.fetchData();
-    const products = rawData
+    const params = new URLSearchParams({ fields: "*,images.*" });
+
+    if (filter?.latest) {
+      params.set("filter[status][_eq]", "published");
+      params.set("sort", "-date_created");
+    }
+
+    if (filter?.limit) {
+      params.set("limit", String(filter.limit));
+    }
+
+    const rawData = await this.fetchData(params.toString());
+    let products = rawData
       .filter((p) => p.status === "published")
       .map((p) => this.mapToProduct(p))
-      .sort((a, b) => (a.listingOrder ?? 999) - (b.listingOrder ?? 999));
+      .sort((a, b) => {
+        if (filter?.latest) {
+          return new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime();
+        }
+        return (a.listingOrder ?? 999) - (b.listingOrder ?? 999);
+      });
 
-    return products.filter((p) => {
+    products = products.filter((p) => {
       if (filter?.category && p.category !== filter.category) return false;
       if (filter?.featured !== undefined && !!p.featured !== filter.featured)
         return false;
       return true;
     });
+
+    if (filter?.limit && !filter.latest) {
+      products = products.slice(0, filter.limit);
+    }
+
+    return products;
   }
 
   async getBySlug(slug: string): Promise<Product | null> {
