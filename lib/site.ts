@@ -15,7 +15,7 @@ export const site = {
   factoryAddressFull: "34 Ấp 7B, xã Mỹ Yên, Tỉnh Tây Ninh, Việt Nam",
   officeAddress: "34 Ấp 7B, xã Mỹ Yên, Tỉnh Tây Ninh, Việt Nam",
   mapEmbedSrc:
-    "https://www.google.com/maps?q=34%20%E1%BA%A4p%207B%2C%20x%C3%A3%20M%E1%BB%B9%20Y%C3%AAn%2C%20T%E1%BB%89nh%20T%C3%A2y%20Ninh%2C%20Vi%E1%BB%87t%20Nam&output=embed",
+    "https://www.google.com/maps?q=C%C3%B4ng%20Ty%20C%E1%BB%95%20Ph%E1%BA%A7n%20Th%C6%B0%C6%A1ng%20M%E1%BA%A1i%20S%E1%BA%A3n%20Xu%E1%BA%A5t%20Bao%20B%C3%AC%20Th%C3%A0nh%20L%E1%BB%A3i%2C%2034%20%E1%BA%A4p%207B%2C%20M%E1%BB%B9%20Y%C3%AAn%2C%20T%C3%A2y%20Ninh%2C%20Vi%E1%BB%87t%20Nam&output=embed",
 } as const;
 
 export const routes = {
