@@ -66,7 +66,7 @@ export class DirectusNewsRepository implements NewsRepository {
       for (const img of item.images) {
         if (typeof img === "object" && img !== null && img.image) {
           const src = assetUrl(img.image);
-          if (src !== image.src && !images.some((image) => image.src === src)) {
+          if (!images.some((existing) => existing.src === src)) {
             images.push({ src, alt: title });
           }
         }

@@ -73,10 +73,6 @@ export default async function NewsDetailPage({
   const article = await repo.getBySlug(slug);
   if (!article) notFound();
 
-  const related = (await repo.list({ tag: article.tag, limit: 4 }))
-    .filter((a) => a.slug !== article.slug)
-    .slice(0, 3);
-
   return (
     <main className="bg-offwhite">
       <ArticleJsonLd article={article} />
@@ -137,12 +133,16 @@ export default async function NewsDetailPage({
               [&_strong]:text-navy-900 [&_strong]:font-semibold"
             dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
           />
+        </div>
 
-          {article.images && article.images.length > 0 && (
+        {article.images && article.images.length > 0 && (
+          <div className="container-x">
             <ArticleImageCarousel images={article.images} />
-          )}
+          </div>
+        )}
 
-          <div className="mt-12 border-t border-grayline-200 pt-8">
+        <div className="container-x max-w-4xl pb-12">
+          <div className="pt-8">
             <Link href="/tin-tuc" className="inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-orange-500">
               <ArrowLeft size={16} /> Quay lại Tin Tức
             </Link>
@@ -150,32 +150,6 @@ export default async function NewsDetailPage({
         </div>
       </article>
 
-      {related.length > 0 && (
-        <section className="bg-offwhite py-16">
-          <div className="container-x max-w-6xl">
-            <h2 className="mb-8 text-2xl font-bold text-navy-900">Bài viết liên quan</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              {related.map((r) => (
-                <article key={r.slug} className="group overflow-hidden rounded-xl border border-grayline-200 bg-white transition-all hover:-translate-y-1 hover:shadow-card">
-                  <Link href={`/tin-tuc/${r.slug}`} className="block">
-                    <div className="relative h-44 overflow-hidden">
-                      <Image src={r.image.src} alt={r.image.alt} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                    </div>
-                    <div className="p-5">
-                      <time dateTime={r.publishedAt} className="text-[0.8rem] text-grayline-600">
-                        {r.displayDate}
-                      </time>
-                      <h3 className="mt-2 text-base font-bold leading-snug text-navy-900 group-hover:text-orange-500">
-                        {r.title}
-                      </h3>
-                    </div>
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </main>
   );
 }

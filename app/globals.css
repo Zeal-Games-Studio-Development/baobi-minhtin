@@ -180,3 +180,9 @@ section[id] { scroll-margin-top: 96px; }
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ---------- image marquee ---------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
