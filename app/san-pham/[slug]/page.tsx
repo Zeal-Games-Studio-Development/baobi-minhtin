@@ -104,14 +104,11 @@ export default async function ProductDetailPage({
           <ProductGallery images={product.images} />
 
           <div className="flex h-full flex-col">
-            <div className="tag-label">{product.categoryLabel}</div>
             <h1 className="mb-4 text-3xl font-extrabold text-navy-900 md:text-4xl">
               {product.name}
             </h1>
 
-            <div className="mt-4 flex-1 overflow-hidden rounded-xl border border-grayline-200 bg-offwhite p-6">
-              <h2 className="mb-4 text-2xl font-bold text-navy-900">Chi tiết</h2>
-              <div className="max-h-[360px] overflow-y-auto pr-3">
+            <div className="mt-4 flex-1 text-grayline-600">
                 {product.longDescriptionHtml ? (
                   <div
                     className="prose prose-lg max-w-none text-grayline-600 [&_ul]:ml-5 [&_ul]:list-disc [&_p]:mb-4 [&_ul]:mb-4 [&_h3]:mb-3 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-navy-900"
@@ -123,7 +120,6 @@ export default async function ProductDetailPage({
                   </p>
                 )}
               </div>
-            </div>
 
             <div className="mt-6 flex flex-wrap gap-4">
               {product.ctas.map((cta) => (

@@ -72,10 +72,7 @@ export class DirectusProductRepository implements ProductRepository {
           fileId = img;
         }
         if (fileId) {
-          const src = assetUrl(fileId);
-          if (src !== mappedImages[0]?.src && !detailImages.some((image) => image.src === src)) {
-            detailImages.push({ src, alt: name });
-          }
+          detailImages.push({ src: assetUrl(fileId), alt: name });
         }
       }
     }

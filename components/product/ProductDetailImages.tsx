@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import type { ProductImage } from "@/lib/products/types";
 
 export default function ProductDetailImages({ images }: { images: ProductImage[] }) {
-  const displayImages = images.slice(0, 3);
+  const displayImages = images;
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
