@@ -1,7 +1,7 @@
 export const site = {
   name: "Minh Tín Plastics",
   shortName: "MTP",
-  tagline: "Giải Pháp Bao Bì B2B Toàn Diện",
+  tagline: "Công ty cổ phần bao bì nhựa Minh Tín",
   description:
     "Minh Tín Plastics (MTP) - Nhà sản xuất bao bì, thùng carton, túi giấy, màng nhựa PE hàng đầu cho doanh nghiệp B2B tại Việt Nam.",
   url: "https://minhtinjsc.com",

@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  icons: {
+    icon: [{ url: "/images/logo.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/images/logo.svg", type: "image/svg+xml" }],
+  },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
