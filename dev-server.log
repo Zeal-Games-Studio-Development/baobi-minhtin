@@ -1,0 +1,153 @@
+
+> baobi-minhtin@0.2.0 dev
+> next dev
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.178:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s (789 modules)
+ GET / 200 in 5407ms
+ ○ Compiling /nang-luc ...
+ ✓ Compiled /nang-luc in 512ms (755 modules)
+ GET /nang-luc 200 in 1070ms
+ ✓ Compiled / in 160ms (496 modules)
+ GET / 200 in 1091ms
+ GET / 200 in 810ms
+ GET / 200 in 718ms
+ GET / 200 in 825ms
+ GET / 200 in 741ms
+ GET / 200 in 845ms
+ GET / 200 in 848ms
+ GET / 200 in 834ms
+ GET / 200 in 802ms
+ GET / 200 in 786ms
+ GET / 200 in 659ms
+ GET / 200 in 530ms
+ GET / 200 in 389ms
+ GET / 200 in 264ms
+ GET / 200 in 151ms
+ GET / 200 in 149ms
+ GET / 200 in 136ms
+ GET / 200 in 154ms
+ GET / 200 in 128ms
+ GET / 200 in 131ms
+ ✓ Compiled in 785ms (788 modules)
+ GET / 200 in 563ms
+ ✓ Compiled in 481ms (788 modules)
+ GET / 200 in 552ms
+ GET / 200 in 139ms
+ ✓ Compiled in 466ms (788 modules)
+ GET / 200 in 352ms
+ GET / 200 in 138ms
+ GET / 200 in 148ms
+ GET / 200 in 134ms
+ ✓ Compiled in 703ms (788 modules)
+ GET / 200 in 313ms
+ GET / 200 in 141ms
+ ✓ Compiled in 608ms (788 modules)
+ GET / 200 in 250ms
+ ✓ Compiled in 493ms (788 modules)
+ GET / 200 in 260ms
+ GET / 200 in 154ms
+ ✓ Compiled in 614ms (788 modules)
+ GET / 200 in 251ms
+ GET / 200 in 189ms
+ GET / 200 in 131ms
+ ○ Compiling /san-pham ...
+ ✓ Compiled /san-pham in 809ms (779 modules)
+ GET /nang-luc 200 in 721ms
+ GET /san-pham 200 in 1299ms
+ GET / 200 in 222ms
+ GET / 200 in 115ms
+ GET / 200 in 137ms
+ GET / 200 in 139ms
+ GET / 200 in 132ms
+ GET / 200 in 186ms
+ ✓ Compiled in 1458ms (787 modules)
+ GET / 200 in 454ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: FileText is not defined
+    at Header (components\layout\Header.tsx:95:18)
+  93 |             <div className="flex items-center gap-3">
+  94 |               <Link href={routes.contact} className="btn btn-primary hidden md:inline-flex" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
+> 95 |                 <FileText size={16} /> Nhận Báo Giá
+     |                  ^
+  96 |               </Link>
+  97 |               <button
+  98 |                 type="button" {
+  digest: '3761147811'
+}
+ GET / 500 in 568ms
+ ⨯ ReferenceError: FileText is not defined
+    at Header (components\layout\Header.tsx:95:18)
+  93 |             <div className="flex items-center gap-3">
+  94 |               <Link href={routes.contact} className="btn btn-primary hidden md:inline-flex" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
+> 95 |                 <FileText size={16} /> Nhận Báo Giá
+     |                  ^
+  96 |               </Link>
+  97 |               <button
+  98 |                 type="button" {
+  digest: '3761147811'
+}
+ GET / 500 in 230ms
+ ✓ Compiled /_not-found in 238ms (777 modules)
+ ⨯ ReferenceError: FileText is not defined
+    at Header (components\layout\Header.tsx:95:18)
+  93 |             <div className="flex items-center gap-3">
+  94 |               <Link href={routes.contact} className="btn btn-primary hidden md:inline-flex" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
+> 95 |                 <FileText size={16} /> Nhận Báo Giá
+     |                  ^
+  96 |               </Link>
+  97 |               <button
+  98 |                 type="button" {
+  digest: '3761147811'
+}
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /vi 500 in 564ms
+ ⨯ ReferenceError: FileText is not defined
+    at Header (components\layout\Header.tsx:95:18)
+  93 |             <div className="flex items-center gap-3">
+  94 |               <Link href={routes.contact} className="btn btn-primary hidden md:inline-flex" style={{ padding: "10px 24px", fontSize: "0.9rem" }}>
+> 95 |                 <FileText size={16} /> Nhận Báo Giá
+     |                  ^
+  96 |               </Link>
+  97 |               <button
+  98 |                 type="button" {
+  digest: '3761147811'
+}
+ GET / 500 in 526ms
+ ✓ Compiled in 547ms (791 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 782ms
+ ✓ Compiled in 535ms (791 modules)
+ GET / 200 in 241ms
+ ✓ Compiled in 385ms (791 modules)
+ GET / 200 in 192ms
+ ✓ Compiled in 319ms (791 modules)
+ GET / 200 in 205ms
+ ✓ Compiled in 531ms (788 modules)
+ ✓ Compiled in 486ms (788 modules)
+ GET / 200 in 868ms
+ GET / 200 in 348ms
+ GET / 200 in 708ms
+ GET / 200 in 119ms
+ GET / 200 in 182ms
+ ✓ Compiled /san-pham in 356ms (499 modules)
+ GET /san-pham 200 in 620ms
+ GET /san-pham 200 in 65ms
+ GET /san-pham 200 in 64ms
+ GET /san-pham 200 in 53ms
+ GET /nang-luc 200 in 136ms
+ ○ Compiling /tin-tuc ...
+ ✓ Compiled /tin-tuc in 659ms (790 modules)
+ GET /tin-tuc 200 in 1108ms
+ GET /tin-tuc 200 in 298ms
+ GET /tin-tuc 200 in 50ms
+ GET /nang-luc 200 in 254ms
+ GET /nang-luc 200 in 168ms
+ GET / 200 in 137ms
+ GET / 200 in 143ms

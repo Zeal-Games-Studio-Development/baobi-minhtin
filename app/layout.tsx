@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
-import TopBar from "@/components/layout/TopBar";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import LiveReloader from "@/components/LiveReloader";
 import { site } from "@/lib/site";
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LiveReloader />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
-        <TopBar />
         <Header />
         {children}
         <Footer />
@@ -61,3 +59,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+

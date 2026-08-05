@@ -1,9 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Circle, Package, Factory, Cog, ListChecks, Headset } from "lucide-react";
+import { MaskedWords, type MaskedSegment } from "@/components/home/MaskedWords";
+
+function buildTitleSegments(titleBefore: string, titleAccent: string, titleAfter?: string): MaskedSegment[] {
+  const segs: MaskedSegment[] = [];
+  const parts: MaskedSegment[] = [
+    { text: titleBefore },
+    { text: titleAccent, isAccent: true },
+  ];
+  if (titleAfter) parts.push({ text: titleAfter });
+
+  for (const part of parts) {
+    for (const token of part.text.split(/(\n)/)) {
+      if (!token) continue;
+      if (token === "\n") {
+        segs.push({ text: "\n" });
+        continue;
+      }
+      const words = token.match(/\S+\s*/g);
+      if (words) {
+        for (const w of words) segs.push({ text: w, isAccent: part.isAccent });
+      }
+    }
+  }
+  return segs;
+}
 
 const slides = [
   {
@@ -75,52 +99,134 @@ const slides = [
 
 export default function HeroSlider() {
   const [idx, setIdx] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  const activeVideo = idx % 2;
+  const videos = ["/videos/217642.mp4", "/videos/231792.mp4"];
+
+  const go = (n: number) => {
+    setIdx((i) => (i + n + slides.length) % slides.length);
+  };
+
+  // Fallback auto-slide — real timing is driven by video onEnded; this is a
+  // safety net in case a video never fires ended (failed load, etc.)
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), 4000);
-    return () => clearInterval(t);
-  }, []);
+    intervalRef.current = setInterval(() => {
+      if (isPlaying) go(1);
+    }, 32000);
 
-  const go = (n: number) => setIdx(((n % slides.length) + slides.length) % slides.length);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPlaying, idx]);
+
+  // Play only the active video, pause the other (replaces autoPlay)
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === activeVideo) {
+        video.play().catch((err) => {
+          console.warn("Video autoplay prevented:", err);
+        });
+      } else {
+        video.pause();
+      }
+    });
+  }, [activeVideo]);
+
+  // Retry play once the video is ready — play() can reject early when
+  // preload="metadata" hasn't finished, and without this the slide would
+  // show an empty background instead of the video.
+  const handleVideoReady = (i: number) => {
+    const video = videoRefs.current[i];
+    if (video && i === activeVideo) {
+      video.play().catch((err) => {
+        console.warn("Video autoplay prevented:", err);
+      });
+    }
+  };
+
+  // Play / Pause on hover
+  const handleMouseEnter = () => setIsPlaying(false);
+  const handleMouseLeave = () => setIsPlaying(true);
 
   return (
-    <section className="hero-mesh relative flex min-h-screen items-center overflow-hidden bg-navy-900">
-      <div className="relative z-10 w-full">
-        <div className="container-x relative flex min-h-[85vh] items-center">
+    <section
+      id="hero"
+      className="hero relative h-screen overflow-hidden bg-navy-900"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Videos — stacked, crossfade. Advance to the next slide when the active video ends */}
+      {videos.map((src, i) => (
+        <video
+          key={src}
+          ref={(el) => {
+            videoRefs.current[i] = el;
+          }}
+          muted
+          playsInline
+          preload={i === 0 ? "auto" : "metadata"}
+          poster={i === 0 ? "/images/hero_banner.png" : undefined}
+          onEnded={() => {
+            if (i === activeVideo && isPlaying) go(1);
+          }}
+          onLoadedData={() => handleVideoReady(i)}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+            i === activeVideo ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      ))}
+
+      {/* Scrim */}
+      <div className="hero-scrim full pointer-events-none" />
+
+      <div className="relative z-10 h-full">
+        <div className="container-x relative flex h-full items-center">
           {slides.map((s, i) => (
-            <div key={i} className={`slide ${i === idx ? "is-active" : ""}`}>
-              <div className="grid w-full items-center gap-14 py-20 md:grid-cols-[1fr_1.05fr]">
-                <div className="slide-text text-white">
+            <div
+              key={i}
+              className={`slide absolute inset-0 flex items-center opacity-0 transition-opacity duration-1000 ease-in-out ${
+                i === idx ? "is-active opacity-100 z-10" : "z-0"
+              }`}
+            >
+              <div className="w-full">
+                <div className="text-white max-w-[620px]">
                   <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-[2.5px] text-orange-400">
                     <Circle size={10} fill="currentColor" /> {s.tag}
                   </div>
-                  <h1 className="mb-5 whitespace-pre-line text-[clamp(2.2rem,4vw,3.6rem)] font-extrabold leading-[1.1] text-white">
-                    {s.titleBefore}
-                    <span className="text-orange-400">{s.titleAccent}</span>
-                    {s.titleAfter}
+
+                  <h1 className="mb-5 text-[clamp(2.2rem,4.2vw,3.6rem)] font-extrabold leading-[1.15] text-white tracking-[-0.02em]">
+                    <MaskedWords
+                      delayBase={100}
+                      segments={buildTitleSegments(s.titleBefore, s.titleAccent, s.titleAfter)}
+                    />
                   </h1>
-                  <p className="mb-9 max-w-xl text-[1.08rem] leading-[1.75] text-white/70">{s.description}</p>
+
+                  <div className="hero-desc-mask mb-9">
+                    <p className="max-w-xl text-[1.08rem] leading-[1.75] text-white/75">{s.description}</p>
+                  </div>
+
                   <div className="flex flex-wrap gap-4">
-                    <Link href={s.cta1.href} className="btn btn-primary">
+                    <Link
+                      href={s.cta1.href}
+                      className="btn btn-primary flex items-center gap-3"
+                    >
                       {s.cta1.icon} {s.cta1.label}
                     </Link>
+
                     {s.cta2 && (
-                      <Link href={s.cta2.href} className="btn btn-outline">
+                      <Link
+                        href={s.cta2.href}
+                        className="btn btn-outline"
+                      >
                         {s.cta2.label}
                       </Link>
                     )}
-                  </div>
-                </div>
-
-                <div className="slide-image relative hidden md:block">
-                  <div className="relative overflow-hidden rounded-lg">
-                    <div className="relative aspect-[4/3] w-full">
-                      <Image src={s.image} alt={s.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" priority={i === 0} />
-                    </div>
-                    <div className="absolute -bottom-5 -left-5 rounded-md border-2 border-orange-500 bg-navy-700 px-5 py-4 text-white shadow-navy">
-                      <div className="text-[2rem] font-extrabold leading-none text-orange-400">{s.badgeNumber}</div>
-                      <div className="mt-1 text-[0.78rem] text-white/70">{s.badgeLabel}</div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -128,33 +234,36 @@ export default function HeroSlider() {
           ))}
         </div>
 
-        <div className="absolute bottom-10 left-0 right-0 z-10 flex items-center justify-center gap-4">
+        {/* Controls */}
+        <div className="absolute bottom-10 left-0 right-0 z-20 flex items-center justify-center gap-4 px-6">
           <button
             type="button"
             aria-label="Trước"
-            onClick={() => go(idx - 1)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:scale-110 hover:border-orange-500 hover:bg-orange-500"
+            onClick={() => go(-1)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:scale-110 hover:border-orange-500 hover:bg-orange-500/10"
           >
-            <ChevronLeft size={18} />
+            <ChevronLeft size={20} />
           </button>
-          <div className="flex items-center gap-2">
+
+          <div className="flex items-center gap-3">
             {slides.map((_, i) => (
               <button
                 key={i}
                 type="button"
                 aria-label={`Slide ${i + 1}`}
-                onClick={() => go(i)}
+                onClick={() => go(i - idx)}
                 className={`h-2 rounded-full transition-all ${i === idx ? "w-7 bg-orange-500" : "w-2 bg-white/30"}`}
               />
             ))}
           </div>
+
           <button
             type="button"
             aria-label="Tiếp"
-            onClick={() => go(idx + 1)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:scale-110 hover:border-orange-500 hover:bg-orange-500"
+            onClick={() => go(1)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:scale-110 hover:border-orange-500 hover:bg-orange-500/10"
           >
-            <ChevronRight size={18} />
+            <ChevronRight size={20} />
           </button>
         </div>
       </div>
