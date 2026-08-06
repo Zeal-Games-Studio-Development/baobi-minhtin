@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+
 export interface MaskedSegment {
   text: string;
   isAccent?: boolean;
@@ -21,14 +23,21 @@ export function MaskedWords({ segments, className = "", delayBase = 0 }: MaskedW
           return <br key={i} />;
         }
         const idx = wordIndex++;
+        // Tách space đuôi ra khỏi span animate: space nằm cuối một
+        // inline-block luôn bị CSS nuốt (line-box trailing whitespace),
+        // nên phải trả nó về text node của container cha.
+        const word = seg.text.replace(/\s+$/, "");
+        const hasTrailingSpace = word.length !== seg.text.length;
         return (
-          <span
-            key={i}
-            className={`hero-word inline-block ${seg.isAccent ? "text-orange-400" : ""}`}
-            style={{ animationDelay: `${delayBase + idx * 15}ms` }}
-          >
-            {seg.text}
-          </span>
+          <Fragment key={i}>
+            <span
+              className={`hero-word inline-block ${seg.isAccent ? "text-orange-400" : ""}`}
+              style={{ animationDelay: `${delayBase + idx * 15}ms` }}
+            >
+              {word}
+            </span>
+            {hasTrailingSpace ? " " : null}
+          </Fragment>
         );
       })}
     </span>
