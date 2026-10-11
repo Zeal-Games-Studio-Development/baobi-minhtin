@@ -10,16 +10,13 @@ export interface NewsRepository {
 let instance: NewsRepository | null = null;
 
 /**
- * Returns the active NewsRepository.
- *
- * Swap implementation to move to a CMS / API:
- *   instance = new ApiNewsRepository(process.env.API_URL!);
+ * Returns the active NewsRepository. Data comes from local seed files.
  */
 export function getNewsRepository(): NewsRepository {
   if (instance) return instance;
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { DirectusNewsRepository } = require("./directus-repository") as typeof import("./directus-repository");
-  instance = new DirectusNewsRepository();
+  const { LocalNewsRepository } = require("./local-repository") as typeof import("./local-repository");
+  instance = new LocalNewsRepository();
   return instance;
 }
 

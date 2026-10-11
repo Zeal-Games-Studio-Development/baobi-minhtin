@@ -15,20 +15,18 @@ export interface ProductRepository {
 let instance: ProductRepository | null = null;
 
 /**
- * Returns the active ProductRepository. Swap implementation here to move to a
- * CMS (Sanity/Payload/Strapi/etc.) later — pages and components only go
- * through this function.
+ * Returns the active ProductRepository. Data comes from local seed files;
+ * pages and components only go through this function.
  */
 export function getProductRepository(): ProductRepository {
   if (instance) return instance;
-  // Lazy import so bundler can tree-shake future CMS impls.
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { DirectusProductRepository } = require("./directus-repository") as typeof import("./directus-repository");
-  instance = new DirectusProductRepository();
+  const { LocalProductRepository } = require("./local-repository") as typeof import("./local-repository");
+  instance = new LocalProductRepository();
   return instance;
 }
 
-/** Test/override helper — lets a CMS adapter install itself at boot. */
+/** Test/override helper. */
 export function setProductRepository(repo: ProductRepository): void {
   instance = repo;
 }

@@ -1,10 +1,12 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minhtinjsc.com";
+
 export const site = {
   name: "Minh Tín Plastics",
   shortName: "MTP",
   tagline: "Công ty cổ phần bao bì nhựa Minh Tín",
   description:
     "Minh Tín Plastics (MTP) - Nhà sản xuất bao bì, thùng carton, túi giấy, màng nhựa PE hàng đầu cho doanh nghiệp B2B tại Việt Nam.",
-  url: "https://minhtinjsc.com",
+  url: siteUrl,
   email: "sales@minhtinjsc.com",
   contactEmail: "sales@minhtinjsc.com",
   hotline: "0812 021 610",

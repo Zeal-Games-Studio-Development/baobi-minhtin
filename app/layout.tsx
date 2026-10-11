@@ -5,7 +5,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
-import LiveReloader from "@/components/LiveReloader";
 import { site } from "@/lib/site";
 
 const beVietnam = Be_Vietnam_Pro({
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: ["/images/hero_banner.png"],
   },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
@@ -48,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className={beVietnam.variable} suppressHydrationWarning>
       <body className="font-sans">
-        <LiveReloader />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <Header />
