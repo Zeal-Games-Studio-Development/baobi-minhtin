@@ -1,0 +1,51 @@
+Danh mục ảnh trích xuất từ tài liệu
+
+* @Hinh_01_Day_chuyen_tong_the (Trang 1): Toàn cảnh 3 cụm thiết bị chính của dây chuyền Rajoo & Syncro (hệ cấp liệu, tháp kéo/cuộn, khuôn đùn thổi IBC).
+* @Hinh_02_Cap_lieu_Layer_ABC (Trang 3): Khu vực bồn chứa và đường ống dẫn hạt nhựa tự động chia theo 3 lớp: Layer A (25%), Layer C (25%), Layer B (50%).
+* @Hinh_03_Man_hinh_Corona (Trang 4): Màn hình điều khiển trạm xử lý Corona Generator (hiển thị công suất thực 3.20 kW, liều lượng 72.3 W·min/m2, tốc độ 13 m/phút).
+* @Hinh_04_Kho_nguyen_lieu (Trang 5, ảnh trên): Khu vực lưu trữ hạt nhựa xếp trên pallet trong nhà xưởng.
+* @Hinh_05_Cuon_thanh_pham (Trang 5, ảnh dưới): Các cuộn màng LLDPE đã được đóng gói bọc màng trắng, nẹp dây đai vàng hoàn thiện.
+* @Hinh_06_Phong_kiem_tra_QC (Trang 6, ảnh trái): Kỹ thuật viên kiểm tra chất lượng tại phòng Lab/Khu vực QC với thiết bị đo kiểm.
+* @Hinh_07_Tong_the_may_chieu_dung (Trang 6, ảnh phải): Cận cảnh tổ hợp tháp kéo và đầu đùn màng thổi.
+
+---
+Phân tích chi tiết nội dung quy trình sản xuất
+
+1. Thông tin chung & Mục đích
+- Đơn vị ban hành: Công ty Cổ phần Bao Bì Nhựa Minh Tín.
+- Mã quy trình: QT-SX-LLDPE-01 (Phiên bản 01, ngày ban hành: 07/10/2026).
+- Sản phẩm & Thiết bị: Màng LLDPE 3 lớp sản xuất trên dây chuyền Rajoo kết hợp hệ thống cấp/định lượng IBC Syncro, Auto Air Ring, trạm Corona và bộ cuộn Rewinder A/B.
+- Mục tiêu: Kiểm soát toàn diện từ khâu cấp hạt nhựa đến nhập kho, đảm bảo dung sai độ dày, độ bám dính (Corona), độ bền hàn dán (Heat Seal) và truy xuất nguồn gốc theo từng Lot/Batch.
+- Ảnh minh họa thiết bị: @Hinh_01_Day_chuyen_tong_the
+
+2. Nguyên liệu và Cấu trúc màng 3 lớp
+- Nguyên liệu sử dụng: Nhựa nền (LLDPE, LDPE), nhựa tính năng (mLLDPE) và các phụ gia công nghệ (Additives/PPA) theo công thức phê duyệt.
+- Tỷ lệ phân bổ 3 lớp (Layer):
+  + Layer A (25%): Gồm nhánh A1 (LLDPE), A2 (LDPE), A3 (mLLDPE), A4 (PPA).
+  + Layer B (50%): Lớp lõi giữa.
+  + Layer C (25%): Gồm nhánh C1 đến C5 cấp liệu tương tự.
+- Ảnh minh họa hệ thống cấp liệu: @Hinh_02_Cap_lieu_Layer_ABC
+- Ảnh minh họa kho hạt nhựa: @Hinh_04_Kho_nguyen_lieu
+
+3. Các bước vận hành công nghệ (B1 – B10)
+- B1 & B2 – Kiểm tra & Định lượng tự động: Kiểm tra tem nhãn, Lot nguyên liệu; hệ thống tự động cân định lượng theo đúng Recipe/Formula, nghiêm cấm tự đổi tỷ lệ.
+- B3 – Đùn thổi 3 lớp & IBC: Gia nhiệt nóng chảy nhựa qua khuôn 3 lớp (tỷ lệ 25/50/25); hệ thống IBC làm lạnh và ổn định bóng màng từ bên trong.
+- B4 – Auto Air Ring: Vòng gió tự động điều chỉnh luồng khí dựa trên dữ liệu đo độ dày thực tế, giữ dải dung sai mục tiêu trong khoảng 3 – 7%.
+- B5 – Lô ép / kéo (Nip & Pull Roll): Khung Collapsing Frame và lô kéo định hình bóng màng, triệt tiêu rung lắc, chống nhăn và lệch tâm.
+- B6 – Xử lý bề mặt Corona: Bắn phá bề mặt nhằm gia tăng năng lượng bề mặt giúp bám dính mực in và keo ghép màng phức hợp; kiểm soát qua công suất (Set Power), suất liều (Set Dose) và test bằng bút Dyne. 
+  Ảnh giao diện điều khiển: @Hinh_03_Man_hinh_Corona
+- B7 – Thu cuộn (Rewinder A/B): Cuộn màng tự động theo lực căng (tension), đường kính và chiều dài định trước; cuộn phải phẳng đều, không bị telescope hay lệch mép.
+- B8 – Kiểm tra chất lượng (QC): Đo độ dày, ngoại quan, kiểm tra Dyne test, thử đường hàn nhiệt (Heat Seal), đo kích thước và khối lượng cuộn.
+  Ảnh khu vực đo kiểm: @Hinh_06_Phong_kiem_tra_QC
+- B9 & B10 – Cân, Đóng gói & Nhập kho: Dán nhãn thông tin truy xuất; lưu kho khô ráo, thoáng mát và luân chuyển theo nguyên tắc FIFO/FEFO.
+  Ảnh kiện hàng cuộn màng: @Hinh_05_Cuon_thanh_pham
+
+4. Điểm kiểm soát tới hạn (CP) & Hồ sơ lưu trữ
+- CP1: Nguyên liệu (Đúng chủng loại, đúng Lot, bao bì nguyên vẹn)
+- CP2: Định lượng (Cấp chuẩn theo Formula/Recipe từng mã hàng)
+- CP3: Độ dày (Auto Air Ring chạy ổn định, độ dày đạt dung sai thiết kế)
+- CP4: Corona (Đạt chỉ số năng lượng bề mặt Dyne test theo chuẩn in/ghép)
+- CP5: QC xuất xưởng (Đạt toàn bộ chỉ tiêu ngoại quan, cơ lý, kích thước và Heat Seal)
+- CP6: Thành phẩm (Đạt trạng thái PASS, đủ tem nhãn và cân nặng tiêu chuẩn)
+
+* Truy xuất nguồn gốc: Toàn bộ thông tin được liên kết chặt chẽ theo chuỗi: Mã thành phẩm -> Lot sản xuất -> Formula -> Lot hạt nhựa -> Máy / Ca / Operator / QC -> Kho -> Khách hàng
