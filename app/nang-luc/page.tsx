@@ -23,7 +23,7 @@ import { site, routes } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import StatsBar from "@/components/home/StatsBar";
 import MachineryScroll from "@/components/home/MachineryScroll";
-import ProcessTimeline from "@/components/home/ProcessTimeline";
+import CapacityProcess from "@/components/home/CapacityProcess";
 import PartnersMarquee from "@/components/home/PartnersMarquee";
 
 export const metadata: Metadata = {
@@ -246,7 +246,7 @@ export default function NangLucPage() {
       <MachineryScroll />
 
       {/* ── QUY TRÌNH ── */}
-      <ProcessTimeline />
+      <CapacityProcess />
 
       {/* ── ĐỐI TÁC ── */}
       <PartnersMarquee />

@@ -14,7 +14,7 @@ export default async function Footer() {
         <div className="mb-14 grid gap-14 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr]">
           <div>
             <Link href="/" className="mb-5 inline-block">
-              <Image src="/images/logo.svg" alt="MI Logo" width={200} height={60} className="h-[60px] w-auto" />
+              <Image src="/images/logo-inverse.svg" alt="Minh Tín Plastics" width={588} height={658} className="h-[60px] w-auto" />
             </Link>
             <p className="max-w-xs text-[0.92rem] leading-relaxed">
               Công ty TNHH Nhựa & Bao Bì Minh Tín tiên phong mang đến giải pháp

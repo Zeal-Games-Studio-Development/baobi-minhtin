@@ -65,7 +65,7 @@ export default function Header() {
         <div className="hdr-main">
           <div className="container-x flex h-full items-center justify-between">
             <Link href="/" className="flex items-center" aria-label="Minh Tín Plastics">
-              <Image src="/images/logo.svg" alt="Minh Tín Plastics" width={180} height={58} className="h-[48px] w-auto brightness-110" priority />
+              <Image src="/images/logo-inverse.svg" alt="Minh Tín Plastics" width={588} height={658} className="h-[48px] w-auto" priority />
             </Link>
 
             <nav className="hidden lg:block">

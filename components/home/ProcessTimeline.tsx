@@ -15,21 +15,21 @@ const steps: Step[] = [
     code: "B1 – B2",
     title: "Kiểm Tra & Định Lượng Tự Động",
     desc: "Kiểm tra tem nhãn, Lot nguyên liệu; hệ thống tự động cân định lượng theo đúng Recipe/Formula. Nghiêm cấm tự ý đổi tỷ lệ phối trộn.",
-    img: "/images/process/04-kho-nguyen-lieu.jpg",
+    img: "/images/process/kho-nguyen-lieu-hat-nhua.jpg",
     alt: "Kho nguyên liệu hạt nhựa Minh Tín",
   },
   {
     code: "B3",
     title: "Đùn Thổi 3 Lớp & IBC",
     desc: "Gia nhiệt nóng chảy nhựa qua khuôn 3 lớp (tỷ lệ 25/50/25). Hệ thống IBC làm lạnh và ổn định bóng màng từ bên trong.",
-    img: "/images/process/07-may-chieu-dung.jpg",
+    img: "/images/process/day-chuyen-thoi-mang-3-lop-rajoo.jpg",
     alt: "Tổ hợp tháp kéo và đầu đùn màng thổi",
   },
   {
     code: "B4",
     title: "Auto Air Ring",
     desc: "Vòng gió tự động điều chỉnh luồng khí dựa trên dữ liệu đo độ dày thực tế, giữ dải dung sai mục tiêu trong khoảng 3 – 7%.",
-    img: "/images/process/01-day-chuyen-tong-the.jpg",
+    img: "/images/process/day-chuyen-thoi-mang-3-lop-rajoo.jpg",
     alt: "Toàn cảnh dây chuyền Rajoo & Syncro",
   },
   {
@@ -42,7 +42,7 @@ const steps: Step[] = [
     code: "B6",
     title: "Xử Lý Bề Mặt Corona",
     desc: "Bắn phá bề mặt để gia tăng năng lượng bề mặt, giúp bám dính mực in và keo ghép màng phức hợp. Kiểm soát qua công suất (Set Power), suất liều (Set Dose) và test bằng bút Dyne.",
-    img: "/images/process/03-man-hinh-corona.jpg",
+    img: "/images/process/man-hinh-may-corona.jpg",
     alt: "Màn hình điều khiển trạm Corona Generator",
   },
   {
@@ -55,14 +55,14 @@ const steps: Step[] = [
     code: "B8",
     title: "Kiểm Tra Chất Lượng (QC)",
     desc: "Đo độ dày, ngoại quan, kiểm tra Dyne test, thử đường hàn nhiệt (Heat Seal), đo kích thước và khối lượng cuộn.",
-    img: "/images/process/06-phong-qc.jpg",
+    img: "/images/process/khu-vuc-kiem-tra-chat-luong.jpg",
     alt: "Phòng kiểm tra chất lượng QC",
   },
   {
     code: "B9 – B10",
     title: "Cân, Đóng Gói & Nhập Kho",
     desc: "Dán nhãn thông tin truy xuất; lưu kho khô ráo, thoáng mát và luân chuyển theo nguyên tắc FIFO/FEFO.",
-    img: "/images/process/05-cuon-thanh-pham.jpg",
+    img: "/images/process/thanh-pham-cuon-mang-lldpe.jpg",
     alt: "Kiện hàng cuộn màng LLDPE hoàn thiện",
   },
 ];
@@ -174,7 +174,7 @@ export default function ProcessTimeline() {
 
             <div className="relative min-h-[340px] overflow-hidden rounded-lg shadow-lgnavy">
               <Image
-                src="/images/process/02-cap-lieu-3-lop.jpg"
+                src="/images/process/cap-lieu-nguyen-lieu-3-lop.jpg"
                 alt="Hệ thống cấp liệu tự động chia 3 lớp Layer A/B/C"
                 fill
                 sizes="(max-width:1024px) 100vw, 50vw"
@@ -309,7 +309,7 @@ export default function ProcessTimeline() {
           <div className="mt-16">
             <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-lgnavy md:h-[420px]">
               <Image
-                src="/images/process/01-day-chuyen-tong-the.jpg"
+                src="/images/process/day-chuyen-thoi-mang-3-lop-rajoo.jpg"
                 alt="Toàn cảnh 3 cụm thiết bị chính: hệ cấp liệu, tháp kéo/cuộn và khuôn đùn thổi IBC"
                 fill
                 sizes="100vw"
