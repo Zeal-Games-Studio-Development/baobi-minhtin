@@ -6,7 +6,7 @@ import AboutSection from "@/components/home/AboutSection";
 import WhyUsBento from "@/components/home/WhyUsBento";
 import ProductsShowcase from "@/components/home/ProductsShowcase";
 import MachineryScroll from "@/components/home/MachineryScroll";
-import ProcessTimeline from "@/components/home/ProcessTimeline";
+import CapacityProcess from "@/components/home/CapacityProcess";
 import PartnersMarquee from "@/components/home/PartnersMarquee";
 import FaqAccordion from "@/components/home/FaqAccordion";
 import ContactMap from "@/components/home/ContactMap";
@@ -46,7 +46,7 @@ export default function HomePage() {
       <WhyUsBento />
       <ProductsShowcase />
       <MachineryScroll />
-      <ProcessTimeline />
+      <CapacityProcess />
       <PartnersMarquee />
       <FaqAccordion />
       <ContactMap />
